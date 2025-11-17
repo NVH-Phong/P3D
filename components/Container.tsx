@@ -8,13 +8,7 @@ interface Props {
 const Container = ({ children, className }: Props) => {
   //console.log(children);
   return (
-    <div
-      //className="max-w-screen-x1"
-      className={cn("max-w-screen-x1 mx-auto px-10 ", className)}
-      //className="max-w-screen-x1 mx-auto px-4 bg-blue-500"
-    >
-      {children}
-    </div>
+    <div className={cn("max-w-8xl mx-auto px-4", className)}>{children}</div>
   );
 };
 

@@ -9,7 +9,7 @@ const HeaderMenu = () => {
   const pathname = usePathname();
   return (
     <div
-      className="hidden md:inline-flex w-1/3 items-center gap-5 text-sm 
+      className="hidden md:inline-flex w-1/3 items-center gap-10 text-sm 
     capitalize font-semibold "
     >
       {headerData?.map((item) => (
