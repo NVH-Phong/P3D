@@ -9,7 +9,7 @@ const Header = () => {
     <header className="bg-white border-b border-b-gray-800 py-5">
       <Container className="flex items-center justify-between gap-7 text-lightColor">
         <HeaderMenu />
-        <div className="w-auto md:w-1/3 flex items-center justify-center">
+        <div className="w-auto md:w-1/3 flex items-center justify-center gap-x-5">
           <MobileMenu />
           <Logo> Phong </Logo>
         </div>
