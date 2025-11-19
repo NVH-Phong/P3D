@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/Container";
 import Image from "next/image";
+import HomeBanner from "@/components/HomeBanner";
 
 export default function Home() {
   return (
     <div>
       <Container>
-        <h2>Phong3d</h2>
-        <Button>Button</Button>
+        <HomeBanner />
       </Container>
     </div>
   );
