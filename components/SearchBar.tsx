@@ -4,7 +4,7 @@ import React from "react";
 const SearchBar = () => {
   return (
     <div>
-      <Search className="w-6 h-6 hover:text-darkColor hoverEffect" />
+      <Search className="w-5 h-5 hover:text-darkColor hoverEffect" />
     </div>
   );
 };
