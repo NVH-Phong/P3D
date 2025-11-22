@@ -3,13 +3,19 @@ import Title from "./Title";
 
 const HomeBanner = () => {
   return (
-    <div>
+    <div className=" flex flex-col items-center justify-center gap-5">
       <Title
         className="text-3xl md:text-4xl uppercase font-bold
       text-center"
       >
         Best 3D Printing site
       </Title>
+      <p
+        className="text-sm text-center text-lightColor/80 
+      font-medium max-w-[480px] "
+      >
+        Everything You Need. Every Model You Want
+      </p>
     </div>
   );
 };

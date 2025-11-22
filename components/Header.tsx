@@ -5,8 +5,11 @@ import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 import SearchBar from "./SearchBar";
 import CartIcon from "./CartIcon";
+import { currentUser } from "@clerk/nextjs/server";
+import { SignInButton } from "@clerk/nextjs";
 
-const Header = () => {
+const Header = async () => {
+  const user = await currentUser();
   return (
     <header className="bg-white border-b border-b-gray-800 py-5">
       <Container className="flex items-center justify-between gap-7 text-lightColor">
@@ -18,11 +21,13 @@ const Header = () => {
         <div className="w-auto md:w-1/3 flex items-center justify-end gap-5">
           <SearchBar />
           <CartIcon />
-          <div>
-            <button className="text-sm font-semibold hover:text-darkColor hoverEffect">
-              Login
-            </button>
-          </div>
+          {!user && (
+            <SignInButton mode="modal">
+              <button className="text-sm font-semibold hover:text-darkColor hoverEffect">
+                Login
+              </button>
+            </SignInButton>
+          )}
         </div>
       </Container>
     </header>
