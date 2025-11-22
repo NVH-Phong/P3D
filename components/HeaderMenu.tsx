@@ -9,8 +9,8 @@ const HeaderMenu = () => {
   const pathname = usePathname();
   return (
     <div
-      className="hidden md:inline-flex w-1/3 items-center gap-10 text-sm 
-    capitalize font-semibold "
+      className="hidden md:inline-flex w-2/5 items-center gap-7 text-sm 
+    capitalize font-semibold whitespace-nowrap" //whitespace-nowrap for ko bi nhay chu
     >
       {headerData?.map((item) => (
         <Link

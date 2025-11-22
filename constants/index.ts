@@ -1,6 +1,6 @@
 export const headerData = [
   { title: "Home", href: "/" },
-  { title: "Home1", href: "/home1" },
-  { title: "Home2", href: "/home2" },
-  { title: "Home3", href: "/home3" },
+  { title: "Link swap", href: "/Link swap" },
+  { title: "Custom order", href: "/Custom order" },
+  { title: "About me", href: "/About me" },
 ];
