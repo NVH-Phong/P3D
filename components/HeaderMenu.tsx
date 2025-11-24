@@ -9,7 +9,7 @@ const HeaderMenu = () => {
   const pathname = usePathname();
   return (
     <div
-      className="hidden md:inline-flex w-1/3 items-center gap-7 text-sm 
+      className="hidden md:inline-flex w-1/3 items-center gap-5 text-sm 
     capitalize font-semibold whitespace-nowrap" //whitespace-nowrap for ko bi nhay chu
     >
       {headerData?.map((item) => (
