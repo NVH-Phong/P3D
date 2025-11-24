@@ -52,7 +52,7 @@ function TooltipContent({
         {...props}
       >
         {children}
-        {/*<TooltipPrimitive.Arrow className="bg-foreground fill-foreground z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" />*/}
+        <TooltipPrimitive.Arrow className="bg-foreground fill-white z-20 size-1.5 leading-5 rounded-[px]" />
         {/*This comment line is to make the pop up have an black arrow in the bottom middle */}
       </TooltipPrimitive.Content>
     </TooltipPrimitive.Portal>

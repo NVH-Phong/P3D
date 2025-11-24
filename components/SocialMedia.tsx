@@ -16,27 +16,27 @@ const socialLink = [
   {
     title: "Facebook",
     href: "https://www.facebook.com/hoang.phonh.2025/",
-    icon: <Facebook className="w-5 h-5" />,
+    icon: <Facebook className="w-4 h-4" />,
   },
   {
     title: "Instagram",
     href: "https://www.instagram.com/_phonn_/",
-    icon: <Instagram className="w-5 h-5" />,
+    icon: <Instagram className="w-4 h-4" />,
   },
   {
     title: "Youtube",
     href: "https://www.youtube.com/@phonghoang3444",
-    icon: <Youtube className="w-5 h-5" />,
+    icon: <Youtube className="w-4 h-4" />,
   },
   {
     title: "Linkedin",
     href: "https://www.linkedin.com/in/nvhphong/",
-    icon: <Linkedin className="w-5 h-5" />,
+    icon: <Linkedin className="w-4 h-4" />,
   },
   {
     title: "Github",
     href: "https://github.com/NVH-Phong",
-    icon: <Github className="w-5 h-5" />,
+    icon: <Github className="w-4 h-4" />,
   },
 ];
 const SocialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
@@ -60,7 +60,7 @@ const SocialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
             </TooltipTrigger>
             <TooltipContent
               className={cn(
-                "bg-white text-blue-600 border-0 rounded-lg px-3 py-2 font-semibold shadow-lg",
+                "bg-white text-blue-600 border-0 focus:ring-4 rounded-lg px-2 py-1 font-semibold shadow-lg",
                 //"text-white bg- box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none",
                 tooltipClassName
               )}
