@@ -61,6 +61,7 @@ const SocialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
             <TooltipContent
               className={cn(
                 "bg-white text-blue-600 border-0 rounded-lg px-3 py-2 font-semibold shadow-lg",
+                //"text-white bg- box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none",
                 tooltipClassName
               )}
             >
