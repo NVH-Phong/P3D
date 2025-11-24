@@ -2,8 +2,9 @@ import React from "react";
 import { TooltipProvider } from "./ui/tooltip";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { Facebook, Github, Instagram, Linkedin, Youtube } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { title } from "process";
 
 interface Props {
   className?: string;
@@ -11,25 +12,62 @@ interface Props {
   tooltipClassName?: string;
 }
 
+const socialLink = [
+  {
+    title: "Facebook",
+    href: "https://www.facebook.com/hoang.phonh.2025/",
+    icon: <Facebook className="w-5 h-5" />,
+  },
+  {
+    title: "Instagram",
+    href: "https://www.instagram.com/_phonn_/",
+    icon: <Instagram className="w-5 h-5" />,
+  },
+  {
+    title: "Youtube",
+    href: "https://www.youtube.com/@phonghoang3444",
+    icon: <Youtube className="w-5 h-5" />,
+  },
+  {
+    title: "Linkedin",
+    href: "https://www.linkedin.com/in/nvhphong/",
+    icon: <Linkedin className="w-5 h-5" />,
+  },
+  {
+    title: "Github",
+    href: "https://github.com/NVH-Phong",
+    icon: <Github className="w-5 h-5" />,
+  },
+];
 const SocialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
   return (
     <TooltipProvider>
       <div className={cn("flex items-center gap-3.5", className)}>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Link href="github.com">
-              <Github />
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent
-            className={cn(
-              "text-darkColor bg-white font-semibold",
-              tooltipClassName
-            )}
-          >
-            Github
-          </TooltipContent>
-        </Tooltip>
+        {socialLink?.map((item) => (
+          <Tooltip key={item?.title}>
+            <TooltipTrigger asChild>
+              <Link
+                href={item?.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "p-2 border rounded-full hover:text-white hover:border-white hoverEffect",
+                  iconClassName
+                )}
+              >
+                {item?.icon}
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent
+              className={cn(
+                "bg-white text-blue-600 border-0 rounded-lg px-3 py-2 font-semibold shadow-lg",
+                tooltipClassName
+              )}
+            >
+              {item?.title}
+            </TooltipContent>
+          </Tooltip>
+        ))}
       </div>
     </TooltipProvider>
   );
