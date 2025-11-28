@@ -4,7 +4,7 @@ import { defineField, defineType } from "sanity";
 
 export const productType = defineType({
   name: "product",
-  title: "product",
+  title: "Product",
   type: "document",
   icon: TrolleyIcon,
   fields: [
@@ -19,7 +19,7 @@ export const productType = defineType({
       title: "Slug",
       type: "slug",
       options: {
-        source: "name",
+        source: "title",
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
@@ -40,12 +40,12 @@ export const productType = defineType({
       title: "Description",
       type: "string",
     }),
-    defineField({
-      name: "Stl file",
-      title: "Product Name",
-      type: "array",
-      of: [{ type: "image", options: { hotspot: true } }],
-    }),
+    // defineField({
+    //   name: "Stl file",
+    //   title: "Product Name",
+    //   type: "array",
+    //   of: [{ type: "image", options: { hotspot: true } }],
+    // }),
     defineField({
       name: "price",
       title: "Product Price",

@@ -31,14 +31,14 @@ export const categoryType = defineType({
         hotspot: true,
       },
     }),
-    defineField({
-      name: "stlFile",
-      title: "STL File",
-      type: "file",
-      options: {
-        accept: ".stl",
-      },
-    }),
+    // defineField({
+    //   name: "stlFile",
+    //   title: "STL File",
+    //   type: "file",
+    //   options: {
+    //     accept: ".stl",
+    //   },
+    // }),
   ],
   preview: {
     select: {
