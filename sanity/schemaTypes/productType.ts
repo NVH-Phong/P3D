@@ -40,12 +40,15 @@ export const productType = defineType({
       title: "Description",
       type: "string",
     }),
-    // defineField({
-    //   name: "Stl file",
-    //   title: "Product Name",
-    //   type: "array",
-    //   of: [{ type: "image", options: { hotspot: true } }],
-    // }),
+    defineField({
+      name: "stlFile",
+      title: "3D Model (STL File)",
+      type: "file",
+      options: {
+        accept: ".stl",
+      },
+      description: "Upload an STL file for 3D preview",
+    }),
     defineField({
       name: "price",
       title: "Product Price",
