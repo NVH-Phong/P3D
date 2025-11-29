@@ -96,7 +96,7 @@ export const productType = defineType({
   ],
   preview: {
     select: {
-      title: "name",
+      title: "title",
       media: "images",
       subtitle: "price",
     },
@@ -105,7 +105,7 @@ export const productType = defineType({
       const image = media && media[0];
       return {
         title: title,
-        subtile: `$${subtitle}`,
+        subtitle: `$${subtitle}`,
         media: image,
       };
     },
