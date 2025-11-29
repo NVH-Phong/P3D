@@ -14,15 +14,15 @@ const HomeTabbar = ({ selectedTab, onTabSelect }: Props) => {
           <button
             key={item?.title}
             className={
-              "border border-darkColor px-4 py-1.5 md:px-2 rounded-full hover:bg-darkColor hover:text-white hoverEffect"
+              "border border-darkColor px-4 py-1 md:px-2 rounded-full hover:bg-darkColor hover:text-white hoverEffect"
             }
           >
             {item?.title}
           </button>
         ))}
       </div>
-      <button className="border border-darkColor p-1 rounded-full hover:bg-darkColor hover:text-white hoverEffect">
-        <Repeat />
+      <button className="border border-darkColor p-1.5 rounded-full hover:bg-darkColor hover:text-white hoverEffect">
+        <Repeat size={16} />
       </button>
     </div>
   );
