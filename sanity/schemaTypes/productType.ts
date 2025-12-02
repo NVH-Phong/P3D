@@ -92,7 +92,9 @@ export const productType = defineType({
       options: {
         list: [
           { title: "NFC tag", value: "nfc tag" },
-          { title: "File", value: "file" },
+          { title: "Popular", value: "popular" },
+          { title: "Newest", value: "newest" },
+          { title: "House Items", value: "house items" },
         ],
       },
     }),

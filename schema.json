@@ -296,7 +296,15 @@
             },
             {
               "type": "string",
-              "value": "file"
+              "value": "popular"
+            },
+            {
+              "type": "string",
+              "value": "newest"
+            },
+            {
+              "type": "string",
+              "value": "house items"
             }
           ]
         },

@@ -57,7 +57,7 @@ export type Product = {
   }>;
   stock?: number;
   status?: "new" | "hot" | "sale";
-  variant?: "nfc tag" | "file";
+  variant?: "nfc tag" | "popular" | "newest" | "house items";
 };
 
 export type SanityImageCrop = {

@@ -9,5 +9,5 @@ export const productType = [
   { title: "Popular", value: "popular" },
   { title: "Newest", value: "newest" },
   { title: "House Items", value: "house items" },
-  { title: "NFC", value: "nfc" },
+  { title: "NFC tag", value: "nfc tag" },
 ];
