@@ -3,6 +3,7 @@ import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import PriceView from "./PriceView";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -21,8 +22,10 @@ const ProductCard = ({ product }: { product: Product }) => {
           </Link>
         )}
       </div>
-      <div>
-        <h2 className="font-semibold line-clamp-1">{product?.n}</h2>
+      <div className="py-3 px-2 flex flex-col gap-1.5 bg-zinc-50 border border-t-0 rounded-lg rounded-tl-none rounded-tr-none">
+        <h2 className="font-semibold line-clamp-1">{product?.title}</h2>
+        <p>{product?.intro}</p>
+        <PriceView price={product?.price} discount={product?.discount} />
       </div>
     </div>
   );
