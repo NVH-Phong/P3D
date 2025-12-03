@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
 interface Props {
@@ -5,7 +6,16 @@ interface Props {
   className?: string;
 }
 const PriceFormatter = ({ amount, className }: Props) => {
-  return <div>PriceFormatter</div>;
+  const formattedPrice = new Number(amount).toLocaleString("en-US", {
+    currency: "AUD",
+    style: "currency",
+    minimumFractionDigits: 2,
+  });
+  return (
+    <div className={cn("text-sm font-semibold text-darkColor")}>
+      {formattedPrice}
+    </div>
+  );
 };
 
 export default PriceFormatter;

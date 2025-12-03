@@ -41,7 +41,7 @@ const NoProductsAvailable = ({
         transition={{ repeat: Infinity, duration: 1.5 }}
         className="flex items-center space-x-2 text-blue-600"
       >
-        <Loader2 className="h-4 w-4 animate-spin" />{" "}
+        {/* <Loader2 className="h-4 w-4 animate-spin" />{" "} */}
         <span>We&apos;re restocking shortly</span>
       </motion.div>
       <motion.p
