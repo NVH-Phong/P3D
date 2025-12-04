@@ -25,7 +25,11 @@ const ProductCard = ({ product }: { product: Product }) => {
       <div className="py-3 px-2 flex flex-col gap-1.5 bg-zinc-50 border border-t-0 rounded-lg rounded-tl-none rounded-tr-none">
         <h2 className="font-semibold line-clamp-1">{product?.title}</h2>
         <p>{product?.intro}</p>
-        <PriceView price={product?.price} discount={product?.discount} />
+        <PriceView
+          className="text-lg"
+          price={product?.price}
+          discount={product?.discount}
+        />
       </div>
     </div>
   );
