@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Visit Us */}
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <div className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-darkColor" />
               </div>
               <div>
@@ -33,7 +33,7 @@ const Footer = () => {
 
             {/* Call Us */}
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <div className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <Phone className="w-5 h-5 text-darkColor" />
               </div>
               <div>
@@ -44,7 +44,7 @@ const Footer = () => {
 
             {/* Working Hours */}
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <div className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <Clock className="w-5 h-5 text-darkColor" />
               </div>
               <div>
@@ -59,7 +59,7 @@ const Footer = () => {
 
             {/* Email Us */}
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <div className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center">
                 <Mail className="w-5 h-5 text-darkColor" />
               </div>
               <div>
