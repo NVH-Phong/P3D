@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   amount: number | undefined;
@@ -12,7 +13,7 @@ const PriceFormatter = ({ amount, className }: Props) => {
     minimumFractionDigits: 2,
   });
   return (
-    <div className={cn("text-sm font-semibold text-darkColor")}>
+    <div className={cn("font-semibold text-darkColor", className)}>
       {formattedPrice}
     </div>
   );

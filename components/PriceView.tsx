@@ -1,6 +1,7 @@
 import React from "react";
 import PriceFormatter from "./PriceFormatter";
 import { cn } from "@/lib/utils";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   price: number | undefined;
@@ -8,13 +9,17 @@ interface Props {
   className?: string;
 }
 const PriceView = ({ price, discount, className }: Props) => {
+  const realDiscount = discount || 0;
   return (
     <div className="flex items-center gap-2">
       <PriceFormatter amount={price} className={className} />
-      {price && discount && (
+      {price && realDiscount > 0 && (
         <PriceFormatter
-          amount={price + (discount * price) / 100}
-          className={cn("line-through font-medium text-zinc-500", className)}
+          amount={price + (realDiscount * price) / 100}
+          className={cn(
+            "text-xs line-through font-medium text-zinc-500",
+            className
+          )}
         />
       )}
     </div>
