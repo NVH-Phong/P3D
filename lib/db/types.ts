@@ -1,13 +1,13 @@
 import { Generated } from 'kysely';
 
 export interface Database {
-  users: UsersTable;
-  // Add other tables here
+  nfc_tags: NfcTagsTable;
 }
 
-export interface UsersTable {
-  id: Generated<number>;
-  email: string;
-  name: string | null;
+export interface NfcTagsTable {
+  id: Generated<string>; // UUID
+  url: string | null;
+  user_claim: string | null;
   created_at: Generated<Date>;
+  updated_at: Generated<Date>;
 }
