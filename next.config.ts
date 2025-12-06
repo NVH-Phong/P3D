@@ -1,11 +1,11 @@
-import type { NextConfig } from "next";
-import { hostname } from "os";
+import type { NextConfig } from 'next';
 
+/* config options here */
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
+    remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }],
   },
+  output: 'standalone',
 };
 
 export default nextConfig;
