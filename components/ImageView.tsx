@@ -46,7 +46,7 @@ const ImageView = ({ images = [] }: Props) => {
           />
         </motion.div>
       </AnimatePresence>
-      <div className="grid grid-cols-6 gap-2 h-20 md:h-28">
+      <div className="grid grid-cols-5 gap-2 h-20 md:h-28">
         {images?.map((image) => (
           <button
             onClick={() => setActive(image)}
