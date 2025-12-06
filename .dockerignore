@@ -11,14 +11,14 @@
 !.yarn/versions
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
-/build
+build/
 
 # misc
 .DS_Store
@@ -41,4 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 # clerk configuration (can include secrets)
-/.clerk/
+.clerk/
