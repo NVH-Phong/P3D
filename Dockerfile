@@ -17,12 +17,7 @@ ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 ENV NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID
 ENV SANITY_API_TOKEN=$SANITY_API_TOKEN
 ENV SANITY_API_READ_TOKEN=$SANITY_API_READ_TOKEN
-
-RUN --mount=type=secret,id=sanity_api_token \
-    --mount=type=secret,id=sanity_api_read_token \
-    export SANITY_API_TOKEN=$(cat /run/secrets/sanity_api_token) && \
-    export SANITY_API_READ_TOKEN=$(cat /run/secrets/sanity_api_read_token) && \
-    npm run build
+RUN npm run build
 
 FROM base AS runner
 WORKDIR /app
