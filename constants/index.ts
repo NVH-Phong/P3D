@@ -8,7 +8,7 @@ export const headerData = [
 export const productType = [
   { title: "Popular", value: "popular" },
   { title: "Newest", value: "newest" },
-  { title: "House Items", value: "house items" },
+  { title: "Gadgets", value: "gadgets" },
   { title: "NFC tag", value: "nfc tag" },
 ];
 
@@ -23,7 +23,7 @@ export const faqsData = [
   {
     question: "What types of 3D printed products do you offer?",
     answer:
-      "We offer a wide range of 3D printed products including house items, decorative pieces, functional accessories, custom NFC tags, and personalized items. Browse our catalog to see our full collection of unique 3D printed creations.",
+      "We offer a wide range of 3D printed products including gadgets, decorative pieces, functional accessories, custom NFC tags, and personalized items. Browse our catalog to see our full collection of unique 3D printed creations.",
   },
   {
     question: "Do you accept custom 3D printing orders?",

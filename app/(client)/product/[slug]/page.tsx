@@ -74,6 +74,24 @@ const SingleProductPage = async ({
             <p>Share</p>
           </div>
         </div>
+        <div className="flex flex-wrap items-center gap-5">
+          <div className="border border-darkBlue/20 text-center p-3 hover:border-darkBlue rounded-md hoverEffect">
+            <p className="text-base font-semibold text-darkColor">
+              Free Shipping
+            </p>
+            <p className="text-sm text-gray-500">
+              Free shipping over order $250
+            </p>
+          </div>
+          <div className="border border-darkBlue/20 text-center p-3 hover:border-darkBlue rounded-md hoverEffect">
+            <p className="text-base font-semibold text-darkColor">
+              Flexible Payment
+            </p>
+            <p className="text-sm text-gray-500">
+              Pay with Multiple Credit Cards
+            </p>
+          </div>
+        </div>
       </div>
     </Container>
   );
