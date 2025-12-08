@@ -14,7 +14,7 @@ const ProductCharacteristics = ({ product }: { product: Product }) => {
         <AccordionTrigger>{product?.title}:Characteristics</AccordionTrigger>
         <AccordionContent>
           <p>
-            Brand: <span>Unknown</span>{" "}
+            Brand: <span>Unknown</span>
           </p>
         </AccordionContent>
       </AccordionItem>
