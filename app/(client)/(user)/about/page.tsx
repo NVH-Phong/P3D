@@ -100,14 +100,14 @@ const AboutPage = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-linear-to-r from-darkColor to-blue-600 rounded-2xl p-10 text-white">
-          <h2 className="text-3xl font-bold mb-4">Join Our Journey</h2>
-          <p className="text-lg mb-6 opacity-90">
+        <div className="text-center bg-white rounded-2xl shadow-lg p-10 border border-gray-100">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Join Our Journey</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Experience the future of 3D design and manufacturing with P3D
           </p>
           <Link
             href="/"
-            className="inline-block bg-white text-darkColor px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
           >
             Explore Our Products
           </Link>
