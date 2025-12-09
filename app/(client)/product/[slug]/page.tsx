@@ -34,8 +34,7 @@ const SingleProductPage = async ({ params }: { params: Promise<{ slug: string }>
             <Heart className="w-4 h-4" />
           </button>
         </div>
-        {/* <ProductCharacteristics product={product} /> */}
-        <ProductCharacteristics />
+        <ProductCharacteristics product={product} />
         <div className="flex flex-wrap items-center justify-center gap-2.5 border-b border-b-gray-200 py-5 -mt-2">
           <div className=" flex items-center gap-2 text-sm text-black hover:text-red-600 hoverEffect">
             <BoxIcon className="w-5 h-5" />

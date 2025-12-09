@@ -32,7 +32,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
       >
         <div className="flex items-center justify-between">
           <button onClick={onClose}>
-            <Logo className="text-white">Phong 3D</Logo>
+            <Logo className="text-white">P3D</Logo>
           </button>
           <button className="hover:text-red-500 hoverEffect" onClick={onClose}>
             <X />

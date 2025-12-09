@@ -12,7 +12,7 @@ const Montserrat = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Phong 3D",
+  title: "P3D",
   description: "An Ecommerce app for 3D site",
 };
 
