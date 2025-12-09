@@ -37,7 +37,7 @@ const ContactPage = () => {
                   <div className="text-3xl">📧</div>
                   <div>
                     <h3 className="font-bold text-darkColor mb-1">Email</h3>
-                    <p className="text-gray-600">hphongt1123@gmail.com</p>
+                    <p className="text-gray-600">hphong1132@gmail.com</p>
                   </div>
                 </div>
 
@@ -46,7 +46,7 @@ const ContactPage = () => {
                   <div className="text-3xl">📞</div>
                   <div>
                     <h3 className="font-bold text-darkColor mb-1">Phone</h3>
-                    <p className="text-gray-600">+61 42206169</p>
+                    <p className="text-gray-600">+61 422261459</p>
                   </div>
                 </div>
 
@@ -68,8 +68,10 @@ const ContactPage = () => {
                     <h3 className="font-bold text-darkColor mb-1">
                       Business Hours
                     </h3>
-                    <p className="text-gray-600">Monday - Friday: 9AM - 6PM</p>
-                    <p className="text-gray-600">Saturday - Sunday: Closed</p>
+                    <p className="text-gray-600">
+                      Monday - Saturday: 9AM - 6PM
+                    </p>
+                    <p className="text-gray-600">Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -77,9 +79,16 @@ const ContactPage = () => {
 
             {/* Social Media */}
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Follow Us</h3>
-              <p className="mb-6 text-gray-600">Stay connected on social media</p>
-              <SocialMedia className="justify-start" iconClassName="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400" />
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                Follow Us
+              </h3>
+              <p className="mb-6 text-gray-600">
+                Stay connected on social media
+              </p>
+              <SocialMedia
+                className="justify-start"
+                iconClassName="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
+              />
             </div>
           </div>
 
