@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Container from "@/components/Container";
+import SocialMedia from "@/components/SocialMedia";
 
 const ContactPage = () => {
   return (
@@ -9,7 +10,7 @@ const ContactPage = () => {
       <Container className="max-w-7xl lg:px-8 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-linear-to-r from-darkColor to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
             Get In Touch
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -22,8 +23,7 @@ const ContactPage = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-              <h2 className="text-3xl font-bold mb-6 text-darkColor flex items-center gap-3">
-                <span className="w-2 h-8 bg-darkColor rounded-full"></span>
+              <h2 className="text-3xl font-bold mb-6 text-gray-900">
                 Contact Information
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
@@ -76,30 +76,16 @@ const ContactPage = () => {
             </div>
 
             {/* Social Media */}
-            <div className="bg-linear-to-r from-darkColor to-blue-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Follow Us</h3>
-              <p className="mb-6 opacity-90">Stay connected on social media</p>
-              <div className="flex gap-4">
-                <button className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-colors">
-                  📘
-                </button>
-                <button className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-colors">
-                  🐦
-                </button>
-                <button className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-colors">
-                  📷
-                </button>
-                <button className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-colors">
-                  💼
-                </button>
-              </div>
+            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Follow Us</h3>
+              <p className="mb-6 text-gray-600">Stay connected on social media</p>
+              <SocialMedia className="justify-start" iconClassName="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400" />
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-gray-100">
-            <h2 className="text-3xl font-bold mb-6 text-darkColor flex items-center gap-3">
-              <span className="w-2 h-8 bg-darkColor rounded-full"></span>
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">
               Send us a Message
             </h2>
             <form className="space-y-6">
@@ -167,9 +153,9 @@ const ContactPage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-linear-to-r from-darkColor to-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-lg hover:scale-[1.02] transition-all"
+                className="w-full bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
               >
-                Send Message ✉️
+                Send Message
               </button>
             </form>
           </div>
