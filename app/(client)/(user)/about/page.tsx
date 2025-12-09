@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const AboutPage = () => {
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white">
+    <div className="bg-linear-to-b from-gray-50 to-white">
       <Container className="max-w-6xl lg:px-8 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-darkColor to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-linear-to-r from-darkColor to-blue-600 bg-clip-text text-transparent">
             About P3D
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -40,7 +40,7 @@ const AboutPage = () => {
         </div>
 
         {/* What We Do Section */}
-        <div className="mb-12 bg-gradient-to-br from-darkColor/5 to-blue-50 rounded-2xl p-8 md:p-12 border border-darkColor/10">
+        <div className="mb-12 bg-linear-to-br from-darkColor/5 to-blue-50 rounded-2xl p-8 md:p-12 border border-darkColor/10">
           <h2 className="text-3xl font-bold mb-6 text-darkColor flex items-center gap-3">
             <span className="w-2 h-8 bg-darkColor rounded-full"></span>
             What We Do
@@ -100,7 +100,7 @@ const AboutPage = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-darkColor to-blue-600 rounded-2xl p-10 text-white">
+        <div className="text-center bg-linear-to-r from-darkColor to-blue-600 rounded-2xl p-10 text-white">
           <h2 className="text-3xl font-bold mb-4">Join Our Journey</h2>
           <p className="text-lg mb-6 opacity-90">
             Experience the future of 3D design and manufacturing with P3D
