@@ -3,7 +3,7 @@ import { Product } from "@/sanity.types";
 import React from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import QuantityButton from "./QuantityButton";
+import QuantityButton from "./QuantityButtons";
 import PriceFormatter from "./PriceFormatter";
 import useCartStore from "@/store";
 import { toast } from "react-hot-toast";
