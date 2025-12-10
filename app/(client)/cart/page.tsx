@@ -1,5 +1,6 @@
 "use client";
 import Container from "@/components/Container";
+import EmptyCart from "@/components/EmptyCart";
 import Loading from "@/components/Loading";
 import NoAccessToCart from "@/components/NoAccessToCart";
 import useCartStore from "@/store";
@@ -15,6 +16,7 @@ const CartPage = () => {
     getItemCount,
     getSubTotalPrice,
     resetCart,
+    getGroupedItems,
   } = useCartStore();
   const user = useUser();
   useEffect(() => {
@@ -23,10 +25,19 @@ const CartPage = () => {
   if (!isClient) {
     return <Loading />;
   }
+  const cartProducts = getGroupedItems();
   return (
     <div>
       {isSignedIn ? (
-        <Container>{user?.user?.fullName}</Container>
+        <Container>
+          {cartProducts?.length ? (
+            <>
+              <p>products</p>
+            </>
+          ) : (
+            <EmptyCart />
+          )}
+        </Container>
       ) : (
         <NoAccessToCart />
       )}
