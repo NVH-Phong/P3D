@@ -57,7 +57,7 @@ export async function createCheckoutSession(
       }/cart`,
       line_items: items.map((item) => ({
         price_data: {
-          currency: "USD",
+          currency: "AUD",
           unit_amount: Math.round(item.product.price! * 100), // Convert to cents
           product_data: {
             name: item.product.title || "Unnamed Product",

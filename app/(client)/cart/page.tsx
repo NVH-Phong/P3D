@@ -218,7 +218,7 @@ const CartPage = () => {
                       >
                         {loading ? "Processing" : "Proceed to Checkout"}
                       </Button>
-                      <Link
+                      {/* <Link
                         href="/"
                         className="text-center text-sm text-darkColor hover:underline border border-darkColor/50 rounded-full flex items-center justify-center py-2 hover:bg-darkColor/5 hover:border-darkColor hoverEffect"
                       >
@@ -227,7 +227,7 @@ const CartPage = () => {
                           className="w-20"
                           alt="paypalLogo"
                         />
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
@@ -266,7 +266,7 @@ const CartPage = () => {
                       >
                         {loading ? "Processing" : "Proceed to Checkout"}
                       </Button>
-                      <Link
+                      {/* <Link
                         href="/"
                         className="text-center text-sm text-darkColor hover:underline border border-darkColor/50 rounded-full flex items-center justify-center py-2 hover:bg-darkColor/5 hover:border-darkColor hoverEffect"
                       >
@@ -275,7 +275,7 @@ const CartPage = () => {
                           className="w-20"
                           alt="paypalLogo"
                         />
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
