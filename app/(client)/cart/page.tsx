@@ -5,6 +5,7 @@ import Loading from "@/components/Loading";
 import NoAccessToCart from "@/components/NoAccessToCart";
 import useCartStore from "@/store";
 import { useAuth, useUser } from "@clerk/nextjs";
+import { ShoppingBag } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 const CartPage = () => {
@@ -27,12 +28,15 @@ const CartPage = () => {
   }
   const cartProducts = getGroupedItems();
   return (
-    <div>
+    <div className="bg-gray-50 pb-52 md:pb-10">
       {isSignedIn ? (
         <Container>
           {cartProducts?.length ? (
             <>
-              <p>products</p>
+              <div className="flex items-center gap-2 py-5">
+                <ShoppingBag />
+                <h1 className="text-2xl font-semibold">Shopping Cart</h1>
+              </div>
             </>
           ) : (
             <EmptyCart />
