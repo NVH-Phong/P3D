@@ -203,7 +203,7 @@ export type Geopoint = {
 
 export type AllSanitySchemaTypes = Product | SanityImageCrop | SanityImageHotspot | Slug | Category | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./app/success/page.tsx
+// Source: ./app/(client)/success/page.tsx
 // Variable: query
 // Query: *[_type == 'order' && clerkUserId == $userId] | order(orderData desc){  ...,products[]{    ...,product->  }}
 export type QueryResult = Array<never>;
