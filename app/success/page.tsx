@@ -20,7 +20,12 @@ const SuccessPage = () => {
   }, [orderNumber, sessionId, resetCart]);
   return (
     <div className="py-10 bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
-      <motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white rounded-2xl shadow-2xl px-8 py-12 max-w-xl w-full text-center"
+      >
         <motion.div>
           <Check />
         </motion.div>
