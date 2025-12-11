@@ -203,6 +203,11 @@ export type Geopoint = {
 
 export type AllSanitySchemaTypes = Product | SanityImageCrop | SanityImageHotspot | Slug | Category | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./app/success/page.tsx
+// Variable: query
+// Query: *[_type == 'order' && clerkUserId == $userId] | order(orderData desc){  ...,products[]{    ...,product->  }}
+export type QueryResult = Array<never>;
+
 // Source: ./sanity/helpers/queries.ts
 // Variable: PRODUCTS_QUERY
 // Query: *[_type=="product"] | order(title asc)
@@ -407,6 +412,7 @@ export type MY_ORDERS_QUERYResult = Array<never>;
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "*[_type == 'order' && clerkUserId == $userId] | order(orderData desc){\n  ...,products[]{\n    ...,product->\n  }\n}": QueryResult;
     "*[_type==\"product\"] | order(title asc)": PRODUCTS_QUERYResult;
     "*[_type == \"product\" && title match $searchParam] | order(title asc)": PRODUCT_SEARCH_QUERYResult;
     "*[_type == \"product\" && slug.current == $slug] | order(title asc) [0]": PRODUCT_BY_ID_QUERYResult;
