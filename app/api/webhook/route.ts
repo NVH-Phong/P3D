@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
       );
     }
   }
-  return NextResponse.json({ received: true });
+  return NextResponse.json({ received: true }, { status: 200 });
 }
 
 async function createOrderInSanity(
