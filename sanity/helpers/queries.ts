@@ -2,7 +2,7 @@ import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../lib/live";
 
 export const getAllProducts = async () => {
-  const PRODUCTS_QUERY = defineQuery(`*[_type=="product"] | order(title asc)`);
+  const PRODUCTS_QUERY = defineQuery(`*[_type=="product"] | order(name asc)`);
   try {
     const products = await sanityFetch({
       query: PRODUCTS_QUERY,
@@ -15,7 +15,7 @@ export const getAllProducts = async () => {
 };
 
 export const getAllCategories = async (quantity?: number) => {
-  const CATEGORIES_QUERY = `*[_type=="category"] | order(title asc)${quantity ? `[0...${quantity}]` : ""}`;
+  const CATEGORIES_QUERY = `*[_type=="category"] | order(name asc)${quantity ? `[0...${quantity}]` : ""}`;
 
   try {
     const categories = await sanityFetch({
@@ -30,7 +30,7 @@ export const getAllCategories = async (quantity?: number) => {
 
 export const searchProductsByName = async (searchParam: string) => {
   const PRODUCT_SEARCH_QUERY = defineQuery(
-    `*[_type == "product" && title match $searchParam] | order(title asc)`
+    `*[_type == "product" && name match $searchParam] | order(name asc)`
   );
 
   try {
@@ -49,7 +49,7 @@ export const searchProductsByName = async (searchParam: string) => {
 
 export const getProductBySlug = async (slug: string) => {
   const PRODUCT_BY_ID_QUERY = defineQuery(
-    `*[_type == "product" && slug.current == $slug] | order(title asc) [0]`
+    `*[_type == "product" && slug.current == $slug] | order(name asc) [0]`
   );
 
   try {
@@ -68,7 +68,7 @@ export const getProductBySlug = async (slug: string) => {
 
 export const getProductsByCategory = async (categorySlug: string) => {
   const PRODUCT_BY_CATEGORY_QUERY = defineQuery(
-    `*[_type == 'product' && references(*[_type == "category" && slug.current == $categorySlug]._id)] | order(title asc)`
+    `*[_type == 'product' && references(*[_type == "category" && slug.current == $categorySlug]._id)] | order(name asc)`
   );
   try {
     const products = await sanityFetch({
@@ -85,7 +85,7 @@ export const getProductsByCategory = async (categorySlug: string) => {
 };
 
 export const getSale = async () => {
-  const SALE_QUERY = defineQuery(`*[_type == 'sale'] | order(title asc)`);
+  const SALE_QUERY = defineQuery(`*[_type == 'sale'] | order(name asc)`);
   try {
     const products = await sanityFetch({
       query: SALE_QUERY,
