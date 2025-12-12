@@ -6,21 +6,13 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { MY_ORDERS_QUERYResult } from "@/sanity.types";
 import { client } from "@/sanity/lib/client";
 import { defineQuery } from "next-sanity";
 import { useUser } from "@clerk/nextjs";
 
-interface Order {
-  _id: string;
-  status: string;
-  orderNumber?: string;
-  orderDate?: string;
-  clerkUserId?: string;
-  products?: any[];
-}
-
 const SuccessPage = () => {
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [orders, setOrders] = useState<MY_ORDERS_QUERYResult>([]);
   const searchParams = useSearchParams();
   const orderNumber = searchParams.get("orderNumber");
   const clearCart = useCartStore((state) => state.resetCart);
@@ -107,11 +99,11 @@ const SuccessPage = () => {
           <div className="space-y-2">
             {orders.map((order) => (
               <div
-                key={order._id}
+                key={order?._id}
                 className="flex justify-between items-center bg-gray-50 p-2 rounded"
               >
                 <span className="text-gray-700 text-sm font-medium">
-                  {order._id}
+                  {order?._id}
                 </span>
                 <span className="text-sm font-medium px-2 py-1 bg-gray-200 rounded-full">
                   {order.status}
@@ -121,7 +113,7 @@ const SuccessPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Link
             href="/"
             className="flex items-center justify-center px-4 py-3 font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md"
@@ -136,13 +128,13 @@ const SuccessPage = () => {
             <Package className="w-5 h-5 mr-2" />
             Orders
           </Link>
-          {/* <Link
+          <Link
             href="/"
             className="flex items-center justify-center px-4 py-3 font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md"
           >
             <ShoppingBag className="w-5 h-5 mr-2" />
             Shop
-          </Link> */}
+          </Link>
         </div>
       </motion.div>
     </div>
