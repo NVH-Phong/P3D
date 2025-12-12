@@ -79,7 +79,7 @@ export const getProductsByCategory = async (categorySlug: string) => {
     });
     return products?.data || [];
   } catch (error) {
-    console.error("Error fetching products by category:", error);
+    console.error("Erroor fetching products by category:", error);
     return [];
   }
 };
