@@ -146,7 +146,7 @@ export default function CustomOrderPage() {
             <div className="lg:col-span-7 order-1">
               <div className="sticky top-8">
                 <div className="bg-white rounded-3xl border border-[#edb7b7]/40 shadow-xl shadow-[#1d1145]/10 overflow-hidden">
-                  <div className="bg-gradient-to-r from-[#1d1145] to-[#1d1145]/90 px-6 py-4 border-b border-[#e76d89]/30">
+                  <div className="bg-[#1d1145] px-6 py-4 border-b border-[#e76d89]/30">
                     <h3 className="text-lg font-semibold text-white">
                       3D Model Preview
                     </h3>
@@ -170,7 +170,7 @@ export default function CustomOrderPage() {
             {/* Configuration Form - Right side */}
             <div className="lg:col-span-5 order-2">
               <div className="bg-white rounded-3xl border border-[#edb7b7]/40 shadow-xl shadow-[#1d1145]/10 overflow-hidden">
-                <div className="bg-gradient-to-r from-[#1d1145] to-[#1d1145]/90 px-6 py-4 border-b border-[#e76d89]/30">
+                <div className="bg-[#1d1145] px-6 py-4 border-b border-[#e76d89]/30">
                   <h2 className="text-lg font-semibold text-white">
                     Print Configuration
                   </h2>
