@@ -89,3 +89,10 @@ export const surfaceFinishOptions = [
   { value: "normal", label: "Normal" },
   { value: "fuzzy-skin", label: "Fuzzy Skin" },
 ];
+
+// theme color for our website
+// A Fresh Modern Color Palette
+// Deep Purple: #1d1145
+// Trapper Keeper Green: #0db4b9
+// Pink Boot: #f2a1a1
+// Modern Pink Backpack: #e76d89
