@@ -6,16 +6,15 @@ import Logo from "./Logo";
 import Link from "next/link";
 
 import SocialMedia from "./SocialMedia";
-import { CATEGORIES_QUERYResult } from "@/sanity.types";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { headerData } from "@/constants";
 
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  categories: CATEGORIES_QUERYResult;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, categories }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
   const sidebarRef = useOutsideClick<HTMLDivElement>(onClose);
 
@@ -42,25 +41,16 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, categories }) => {
           </button>
         </div>
         <div className="flex flex-col gap-3.5 text-base font-semibold tracking-wide text-zinc-400">
-          <Link
-            onClick={onClose}
-            href={"/"}
-            className={`hover:text-white hoverEffect ${
-              pathname === `/` && "text-white"
-            }`}
-          >
-            Home
-          </Link>
-          {categories?.map((item) => (
+          {headerData.map((item) => (
             <Link
               onClick={onClose}
-              key={item?.title}
-              href={`/category/${item?.slug?.current}`}
+              key={item.href}
+              href={item.href}
               className={`hover:text-white hoverEffect ${
-                pathname === `/category/${item?.slug?.current}` && "text-white"
+                pathname === item.href && "text-white"
               }`}
             >
-              {item?.title}
+              {item.title}
             </Link>
           ))}
         </div>
