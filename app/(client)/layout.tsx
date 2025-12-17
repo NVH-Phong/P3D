@@ -19,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
       {(await draftMode()).isEnabled && (
         <>
           <DisableDraftMode />
@@ -27,13 +27,15 @@ export default async function RootLayout({
         </>
       )}
       <Header />
-      {children}
+      <main className="relative">
+        {children}
+      </main>
       <Footer />
       <Toaster
         position="bottom-right"
         toastOptions={{
           style: {
-            background: "#000000",
+            background: "#1d1145",
             color: "#fff",
           },
         }}

@@ -14,14 +14,14 @@ const HomeTabbar = ({ selectedTab, onTabSelect }: Props) => {
           <button
             key={item?.title}
             onClick={() => onTabSelect(item?.title)}
-            className={`border border-darkColor px-4 py-1 md:px-2 rounded-full 
-              hover:bg-darkColor hover:text-white hoverEffect ${selectedTab === item?.title && "bg-darkColor text-white"}`}
+            className={`border border-deepPurple px-4 py-1 md:px-2 rounded-full
+              hover:bg-trapperGreen hover:text-white hoverEffect ${selectedTab === item?.title && "bg-trapperGreen text-white border-trapperGreen"}`}
           >
             {item?.title}
           </button>
         ))}
       </div>
-      <button className="border border-darkColor p-1.5 rounded-full hover:bg-darkColor hover:text-white hoverEffect">
+      <button className="border border-deepPurple p-1.5 rounded-full hover:bg-trapperGreen hover:text-white hoverEffect">
         <Repeat size={16} />
       </button>
     </div>
