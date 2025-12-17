@@ -71,3 +71,21 @@ export const faqsData = [
       "3D printed products are durable but should be handled with care. Avoid extreme temperatures and direct sunlight for extended periods. Clean with a soft, dry cloth. For specific care instructions based on the material used, please refer to the product listing or contact us.",
   },
 ];
+
+// Custom Order Constants
+export const materialOptions = [
+  { value: "pla", label: "PLA" },
+  { value: "hyper-pla", label: "Hyper PLA" },
+  { value: "matte-pla", label: "Matte PLA" },
+];
+
+export const colorOptions = [
+  { value: "red", label: "Red", hex: "#ef4444" },
+  { value: "blue", label: "Blue", hex: "#3b82f6" },
+  { value: "green", label: "Green", hex: "#22c55e" },
+];
+
+export const surfaceFinishOptions = [
+  { value: "normal", label: "Normal" },
+  { value: "fuzzy-skin", label: "Fuzzy Skin" },
+];

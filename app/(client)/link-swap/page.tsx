@@ -111,7 +111,9 @@ const LinkSwapPage = () => {
       <Container>
         <div className="flex items-center gap-2 mb-6">
           <Link2 className="h-6 w-6 text-darkColor" />
-          <h1 className="text-2xl font-semibold">Link Swap - Manage Your NFC Tags</h1>
+          <h1 className="text-2xl font-semibold">
+            Link Swap - Manage Your NFC Tags
+          </h1>
         </div>
 
         {nfcProducts.length === 0 ? (
@@ -122,7 +124,8 @@ const LinkSwapPage = () => {
                 No NFC tags found
               </h2>
               <p className="mt-2 text-sm text-gray-600 text-center max-w-md">
-                You haven&apos;t purchased any NFC tag products yet. Browse our shop to get started!
+                You haven&apos;t purchased any NFC tag products yet. Browse our
+                shop to get started!
               </p>
               <Button asChild className="mt-6">
                 <a href="/">Browse Products</a>
@@ -180,7 +183,9 @@ const NfcProductCard: React.FC<NfcProductCardProps> = ({
             )}
             <div>
               <h3 className="text-lg font-semibold">{product.productTitle}</h3>
-              <p className="text-sm text-gray-500">Quantity: {product.quantity}</p>
+              <p className="text-sm text-gray-500">
+                Quantity: {product.quantity}
+              </p>
             </div>
           </div>
         </CardTitle>
@@ -193,7 +198,7 @@ const NfcProductCard: React.FC<NfcProductCardProps> = ({
           <div className="flex items-center gap-2 p-3 bg-gray-50 rounded-md border">
             {product.currentUrl ? (
               <>
-                <ExternalLink className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                <ExternalLink className="w-4 h-4 text-gray-500 shrink-0" />
                 <a
                   href={product.currentUrl}
                   target="_blank"
