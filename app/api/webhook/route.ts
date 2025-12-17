@@ -4,6 +4,7 @@ import { backendClient } from "@/sanity/lib/backendClient";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { db } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -48,6 +49,9 @@ export async function POST(req: NextRequest) {
     try {
       const order = await createOrderInSanity(session, invoice);
       console.log("Order created in Sanity:", order);
+
+      // Create NFC tags for NFC tag products
+      await createNfcTagsForOrder(session);
     } catch (error) {
       console.error("Error creating order in sanity:", error);
       return NextResponse.json(
@@ -119,4 +123,48 @@ async function createOrderInSanity(
       : null,
   });
   return order;
+}
+
+async function createNfcTagsForOrder(session: Stripe.Checkout.Session) {
+  const { metadata } = session;
+  const { clerkUserId } = metadata as unknown as Metadata;
+
+  const lineItemsWithProduct = await stripe.checkout.sessions.listLineItems(
+    session.id,
+    { expand: ["data.price.product"] }
+  );
+
+  for (const item of lineItemsWithProduct.data) {
+    const stripeProduct = item.price?.product as Stripe.Product;
+    const productId = stripeProduct?.metadata?.id;
+
+    if (!productId) continue;
+
+    // Fetch the product from Sanity to check if it's an NFC tag
+    const product = await backendClient.fetch(
+      `*[_type == "product" && _id == $productId][0]{variant, title}`,
+      { productId }
+    );
+
+    if (product?.variant === "nfc tag") {
+      const quantity = item.quantity || 1;
+
+      // Create NFC tags for each quantity
+      for (let i = 0; i < quantity; i++) {
+        try {
+          await db
+            .insertInto("nfc_tags")
+            .values({
+              url: null,
+              user_claim: clerkUserId,
+            })
+            .execute();
+
+          console.log(`Created NFC tag for user ${clerkUserId}`);
+        } catch (error) {
+          console.error(`Error creating NFC tag:`, error);
+        }
+      }
+    }
+  }
 }

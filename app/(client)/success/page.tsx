@@ -113,7 +113,7 @@ const SuccessPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Link
             href="/"
             className="flex items-center justify-center px-4 py-3 font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md"
@@ -128,13 +128,13 @@ const SuccessPage = () => {
             <Package className="w-5 h-5 mr-2" />
             Orders
           </Link>
-          <Link
+          {/* <Link
             href="/"
             className="flex items-center justify-center px-4 py-3 font-semibold bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md"
           >
             <ShoppingBag className="w-5 h-5 mr-2" />
             Shop
-          </Link>
+          </Link> */}
         </div>
       </motion.div>
     </div>
