@@ -60,7 +60,7 @@ export async function createCheckoutSession(
           currency: "AUD",
           unit_amount: Math.round(item.product.price! * 100), // Convert to cents
           product_data: {
-            name: item.product.title || "Unnamed Product",
+            name: item.product.name || "Unnamed Product",
             description: item.product.description,
             metadata: { id: item.product._id },
             images:

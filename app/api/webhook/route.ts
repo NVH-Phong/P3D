@@ -9,58 +9,49 @@ export async function POST(req: NextRequest) {
   const body = await req.text();
   const headersList = await headers();
   const sig = headersList.get("stripe-signature");
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+  console.log(body);
 
   if (!sig) {
+    console.error("Request does not have `stripe-signature`");
     return NextResponse.json(
-      {
-        error: "No signature",
-      },
+      { error: "Request does not have `stripe-signature`" },
       { status: 400 }
     );
   }
 
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!webhookSecret) {
-    console.log("Stripe webhook secret is not set");
+    console.error("Stripe webhook secret is not set");
     return NextResponse.json(
-      {
-        error: "Stripe webhook secret is not set",
-      },
+      { error: "Stripe webhook secret is not set" },
       { status: 400 }
     );
   }
 
   let event: Stripe.Event;
-
   try {
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
   } catch (error) {
     console.error("Webhook signature verification failed:", error);
     return NextResponse.json(
-      {
-        error: `Webhook Error: ${error}`,
-      },
+      { error: `Webhook Error: ${error}` },
       { status: 400 }
     );
   }
 
   if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.Checkout.Session;
+    const session = event.data.object;
     const invoice = session.invoice
       ? await stripe.invoices.retrieve(session.invoice as string)
       : null;
-    // console.log("session", session, "invoice", invoice);
-
+    console.log("session", session, "invoice", invoice);
     try {
-      await createOrderInSanity(session, invoice);
-      // const order = await createOrderInSanity(session);
-      // console.log("Order created in Sanity:", order);
+      const order = await createOrderInSanity(session, invoice);
+      console.log("Order created in Sanity:", order);
     } catch (error) {
       console.error("Error creating order in sanity:", error);
       return NextResponse.json(
-        {
-          error: `Error creating order: ${error}`,
-        },
+        { error: `Error creating order: ${error}` },
         { status: 400 }
       );
     }
