@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-deepPurple/5 via-trapperGreen/5 to-modernPink/5 border-t border-border/50 backdrop-blur-sm">
+    <footer className="bg-linear-to-br from-deepPurple/5 via-trapperGreen/5 to-modernPink/5 border-t border-border/50 backdrop-blur-sm">
       <Container>
         <FooterTop />
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -24,9 +24,7 @@ const Footer = () => {
             />
           </div>
           <div>
-            <h3 className="font-bold text-foreground mb-4 text-deepPurple">
-              CONTACT US
-            </h3>
+            <h3 className="font-bold mb-4 text-deepPurple">CONTACT US</h3>
             <div className="space-y-4 text-sm">
               <div>
                 <p className="text-foreground font-medium">
@@ -51,9 +49,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h3 className="font-bold text-foreground mb-4 text-deepPurple">
-              Quick Links
-            </h3>
+            <h3 className="font-bold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinksData?.map((item) => (
                 <li key={item?.title}>
@@ -69,9 +65,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-foreground mb-4 text-deepPurple">
-              Newsletter
-            </h3>
+            <h3 className="font-bold text-foreground mb-4">Newsletter</h3>
             <p className="text-muted-foreground text-sm mb-4">
               Subscribe to our newsletter to receive updates and exclusive
               offers.
@@ -85,7 +79,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-deepPurple to-trapperGreen text-white px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-trapperGreen/30 transition-all duration-300 font-semibold"
+                className="w-full bg-linear-to-r from-deepPurple to-trapperGreen text-white px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-trapperGreen/30 transition-all duration-300 font-semibold"
               >
                 Subscribe
               </button>
