@@ -1,4 +1,4 @@
-import Container from '@/components/Container';
+import Container from "@/components/Container";
 
 const TermsPage = () => {
   return (
@@ -135,7 +135,7 @@ const TermsPage = () => {
               </h2>
               <p className="text-gray-700 leading-relaxed">
                 If you have any questions about these Terms and Conditions,
-                please contact us at{' '}
+                please contact us at{" "}
                 <a
                   href="mailto:hphongt1123@gmail.com"
                   className="text-blue-600 hover:underline font-semibold"

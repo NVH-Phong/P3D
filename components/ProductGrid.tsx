@@ -1,16 +1,16 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import HomeTabbar from './HomeTabbar';
-import { productType } from '@/constants';
-import { client } from '@/sanity/lib/client';
-import { Product } from '@/sanity.types';
-import ProductCard from './ProductCard';
-import NoProductsAvailable from './NoProductsAvailable';
-import { motion, AnimatePresence } from 'motion/react';
-import { Loader2 } from 'lucide-react';
+"use client";
+import React, { useEffect, useState } from "react";
+import HomeTabbar from "./HomeTabbar";
+import { productType } from "@/constants";
+import { client } from "@/sanity/lib/client";
+import { Product } from "@/sanity.types";
+import ProductCard from "./ProductCard";
+import NoProductsAvailable from "./NoProductsAvailable";
+import { motion, AnimatePresence } from "motion/react";
+import { Loader2 } from "lucide-react";
 
 const ProductGrid = () => {
-  const [selectedTab, setSelectedTab] = useState(productType[0]?.title || '');
+  const [selectedTab, setSelectedTab] = useState(productType[0]?.title || "");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const query = `*[_type == 'product' && variant ==$variant] | order(name asc) `;
@@ -22,7 +22,7 @@ const ProductGrid = () => {
         const response = await client.fetch(query, params);
         setProducts(await response);
       } catch (error) {
-        console.log('Product Fetch Error', error);
+        console.log("Product Fetch Error", error);
       } finally {
         setLoading(false);
       }

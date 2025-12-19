@@ -1,10 +1,10 @@
-import React from 'react';
-import { Button } from './ui/button';
-import { HiMinus, HiPlus } from 'react-icons/hi2';
-import toast from 'react-hot-toast';
-import useCartStore from '@/store';
-import { Product } from '@/sanity.types';
-import { twMerge } from 'tailwind-merge';
+import React from "react";
+import { Button } from "./ui/button";
+import { HiMinus, HiPlus } from "react-icons/hi2";
+import toast from "react-hot-toast";
+import useCartStore from "@/store";
+import { Product } from "@/sanity.types";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   product: Product;
@@ -20,7 +20,7 @@ const QuantityButtons = ({ product, className, borderStyle }: Props) => {
   const handleRemoveProduct = () => {
     removeItem(product?._id);
     if (itemCount > 1) {
-      toast.success('Quantity Decreased successfully!');
+      toast.success("Quantity Decreased successfully!");
     } else {
       toast.success(
         `${product?.title?.substring(0, 12)} removed successfully!`
@@ -30,7 +30,7 @@ const QuantityButtons = ({ product, className, borderStyle }: Props) => {
   return (
     <div
       className={twMerge(
-        'flex items-center gap-1 pb-1 text-base',
+        "flex items-center gap-1 pb-1 text-base",
         borderStyle,
         className
       )}
@@ -53,7 +53,7 @@ const QuantityButtons = ({ product, className, borderStyle }: Props) => {
         className="w-6 h-6 cursor-pointer"
         onClick={() => {
           addItem(product);
-          toast.success('Quantity increased successfully!');
+          toast.success("Quantity increased successfully!");
         }}
         disabled={isOutOfStock}
       >

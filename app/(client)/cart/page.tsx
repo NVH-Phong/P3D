@@ -1,31 +1,31 @@
-'use client';
-import Container from '@/components/Container';
-import PriceFormatter from '@/components/PriceFormatter';
-import QuantityButtons from '@/components/QuantityButtons';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { urlFor } from '@/sanity/lib/image';
-import useCartStore from '@/store';
-import { useAuth, useUser } from '@clerk/nextjs';
-import { Heart, ShoppingBag, Trash } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
-import EmptyCart from '@/components/EmptyCart';
-import NoAccessToCart from '@/components/NoAccessToCart';
+"use client";
+import Container from "@/components/Container";
+import PriceFormatter from "@/components/PriceFormatter";
+import QuantityButtons from "@/components/QuantityButtons";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { urlFor } from "@/sanity/lib/image";
+import useCartStore from "@/store";
+import { useAuth, useUser } from "@clerk/nextjs";
+import { Heart, ShoppingBag, Trash } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import EmptyCart from "@/components/EmptyCart";
+import NoAccessToCart from "@/components/NoAccessToCart";
 import {
   createCheckoutSession,
   Metadata,
-} from '@/actions/createCheckoutSession';
-import paypalLogo from '@/images/paypalLogo.png';
+} from "@/actions/createCheckoutSession";
+import paypalLogo from "@/images/paypalLogo.png";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip';
-import Loading from '@/components/Loading';
+} from "@/components/ui/tooltip";
+import Loading from "@/components/Loading";
 
 const CartPage = () => {
   const {
@@ -49,10 +49,10 @@ const CartPage = () => {
   }
 
   const handleResetCart = () => {
-    const confirmed = window.confirm('Are you sure to reset your Cart?');
+    const confirmed = window.confirm("Are you sure to reset your Cart?");
     if (confirmed) {
       resetCart();
-      toast.success('Your cart reset successfully!');
+      toast.success("Your cart reset successfully!");
     }
   };
 
@@ -61,8 +61,8 @@ const CartPage = () => {
     try {
       const metadata: Metadata = {
         orderNumber: crypto.randomUUID(),
-        customerName: user?.fullName ?? 'Unknown',
-        customerEmail: user?.emailAddresses[0]?.emailAddress ?? 'Unknown',
+        customerName: user?.fullName ?? "Unknown",
+        customerEmail: user?.emailAddresses[0]?.emailAddress ?? "Unknown",
         clerkUserId: user!.id,
       };
       const checkoutUrl = await createCheckoutSession(groupedItems, metadata);
@@ -70,7 +70,7 @@ const CartPage = () => {
         window.location.href = checkoutUrl;
       }
     } catch (error) {
-      console.error('Error creating checkout session:', error);
+      console.error("Error creating checkout session:", error);
     } finally {
       setLoading(false);
     }
@@ -78,7 +78,7 @@ const CartPage = () => {
 
   const handleDeleteProduct = (id: string) => {
     deleteCartProduct(id);
-    toast.success('Product deleted successfully!');
+    toast.success("Product deleted successfully!");
   };
   return (
     <div className="bg-gray-50 pb-52 md:pb-10">
@@ -123,13 +123,13 @@ const CartPage = () => {
                                   {product?.intro}
                                 </p>
                                 <p className="text-sm capitalize">
-                                  Variant:{' '}
+                                  Variant:{" "}
                                   <span className="font-semibold">
                                     {product?.variant}
                                   </span>
                                 </p>
                                 <p className="text-sm capitalize">
-                                  Status:{' '}
+                                  Status:{" "}
                                   <span className="font-semibold">
                                     {product?.status}
                                   </span>
@@ -216,7 +216,7 @@ const CartPage = () => {
                         className="w-full cursor-pointer rounded-full font-semibold tracking-wide"
                         size="lg"
                       >
-                        {loading ? 'Processing' : 'Proceed to Checkout'}
+                        {loading ? "Processing" : "Proceed to Checkout"}
                       </Button>
                       {/* <Link
                         href="/"
@@ -264,7 +264,7 @@ const CartPage = () => {
                         className="w-full rounded-full font-semibold tracking-wide"
                         size="lg"
                       >
-                        {loading ? 'Processing' : 'Proceed to Checkout'}
+                        {loading ? "Processing" : "Proceed to Checkout"}
                       </Button>
                       {/* <Link
                         href="/"

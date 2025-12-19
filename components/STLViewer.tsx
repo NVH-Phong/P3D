@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import React, { Suspense, useRef, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useRef, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
   Grid,
   GizmoHelper,
   GizmoViewport,
   Text,
-} from '@react-three/drei';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import * as THREE from 'three';
-import { Upload } from 'lucide-react';
-import { Button } from './ui/button';
+} from "@react-three/drei";
+import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
+import * as THREE from "three";
+import { Upload } from "lucide-react";
+import { Button } from "./ui/button";
 
 // Calculate volume of a mesh using the divergence theorem
 function calculateVolume(geometry: THREE.BufferGeometry): number {
@@ -154,7 +154,7 @@ function Model({
       },
       undefined,
       (error) => {
-        console.error('Error loading STL:', error);
+        console.error("Error loading STL:", error);
       }
     );
   }, [url]);
@@ -163,7 +163,7 @@ function Model({
   React.useEffect(() => {
     if (!baseGeometry) return;
 
-    if (surfaceFinish === 'fuzzy-skin') {
+    if (surfaceFinish === "fuzzy-skin") {
       // Clone the base geometry and apply fuzzy skin effect
       const fuzzyGeometry = baseGeometry.clone();
       const positions = fuzzyGeometry.attributes.position;
@@ -217,9 +217,9 @@ function Model({
     <mesh ref={meshRef} geometry={geometry}>
       <meshStandardMaterial
         color={color}
-        roughness={surfaceFinish === 'fuzzy-skin' ? 1.0 : 0.5}
+        roughness={surfaceFinish === "fuzzy-skin" ? 1.0 : 0.5}
         metalness={0.0}
-        flatShading={surfaceFinish === 'fuzzy-skin'}
+        flatShading={surfaceFinish === "fuzzy-skin"}
       />
     </mesh>
   );
@@ -294,8 +294,8 @@ function GridWithLabels() {
 }
 
 export default function STLViewer({
-  color = '#3b82f6',
-  surfaceFinish = 'normal',
+  color = "#3b82f6",
+  surfaceFinish = "normal",
   onVolumeCalculated,
 }: STLViewerProps) {
   const [stlFile, setStlFile] = useState<string | null>(null);
@@ -307,8 +307,8 @@ export default function STLViewer({
 
     // Check file extension (case-insensitive)
     const fileName = file.name.toLowerCase();
-    if (!fileName.endsWith('.stl')) {
-      alert('Please upload a valid STL file');
+    if (!fileName.endsWith(".stl")) {
+      alert("Please upload a valid STL file");
       return;
     }
 
@@ -316,8 +316,8 @@ export default function STLViewer({
       const url = URL.createObjectURL(file);
       setStlFile(url);
     } catch (error) {
-      console.error('Error creating file URL:', error);
-      alert('Failed to load the file. Please try again.');
+      console.error("Error creating file URL:", error);
+      alert("Failed to load the file. Please try again.");
     }
   };
 
@@ -349,8 +349,8 @@ export default function STLViewer({
         <div
           className={`w-full h-full flex flex-col items-center justify-center border-2 border-dashed rounded-lg transition-colors ${
             isDragging
-              ? 'border-primary bg-primary/5'
-              : 'border-gray-300 bg-gray-50'
+              ? "border-primary bg-primary/5"
+              : "border-gray-300 bg-gray-50"
           }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -390,7 +390,7 @@ export default function STLViewer({
               <OrbitControls makeDefault />
               <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
                 <GizmoViewport
-                  axisColors={['#ef4444', '#22c55e', '#3b82f6']}
+                  axisColors={["#ef4444", "#22c55e", "#3b82f6"]}
                   labelColor="white"
                 />
               </GizmoHelper>
@@ -403,7 +403,7 @@ export default function STLViewer({
             onClick={() => {
               setStlFile(null);
               if (fileInputRef.current) {
-                fileInputRef.current.value = '';
+                fileInputRef.current.value = "";
               }
             }}
             variant="outline"

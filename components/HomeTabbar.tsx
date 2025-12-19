@@ -1,6 +1,6 @@
-import { productType } from '@/constants';
-import { Repeat } from 'lucide-react';
-import React from 'react';
+import { productType } from "@/constants";
+import { Repeat } from "lucide-react";
+import React from "react";
 
 interface Props {
   selectedTab: string;
@@ -15,7 +15,7 @@ const HomeTabbar = ({ selectedTab, onTabSelect }: Props) => {
             key={item?.title}
             onClick={() => onTabSelect(item?.title)}
             className={`border border-deepPurple px-4 py-1 md:px-2 rounded-full
-              hover:bg-trapperGreen hover:text-white hoverEffect ${selectedTab === item?.title && 'bg-trapperGreen text-white border-trapperGreen'}`}
+              hover:bg-trapperGreen hover:text-white hoverEffect ${selectedTab === item?.title && "bg-trapperGreen text-white border-trapperGreen"}`}
           >
             {item?.title}
           </button>

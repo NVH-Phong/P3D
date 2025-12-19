@@ -1,9 +1,9 @@
-import { quickLinksData } from '@/constants';
-import Container from './Container';
-import FooterTop from './FooterTop';
-import Logo from './Logo';
-import SocialMedia from './SocialMedia';
-import Link from 'next/link';
+import { quickLinksData } from "@/constants";
+import Container from "./Container";
+import FooterTop from "./FooterTop";
+import Logo from "./Logo";
+import SocialMedia from "./SocialMedia";
+import Link from "next/link";
 
 const Footer = () => {
   return (

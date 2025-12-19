@@ -119,8 +119,8 @@
   }
 } */
 
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -287,7 +287,7 @@
 
 /*Our font setup*/
 :root {
-  --font-montserrat: 'Montserrat', sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
 }
 body {
   font-family: var(--font-montserrat);

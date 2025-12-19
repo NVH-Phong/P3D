@@ -1,12 +1,12 @@
-'use client';
-import { Product } from '@/sanity.types';
-import React from 'react';
-import { Button } from './ui/button';
-import { cn } from '@/lib/utils';
-import QuantityButton from './QuantityButtons';
-import PriceFormatter from './PriceFormatter';
-import useCartStore from '@/store';
-import { toast } from 'react-hot-toast';
+"use client";
+import { Product } from "@/sanity.types";
+import React from "react";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+import QuantityButton from "./QuantityButtons";
+import PriceFormatter from "./PriceFormatter";
+import useCartStore from "@/store";
+import { toast } from "react-hot-toast";
 interface Props {
   product: Product;
   className?: string;
@@ -41,7 +41,7 @@ const AddToCartButton = ({ product, className }: Props) => {
           }}
           disabled={isOutOfStock}
           className={cn(
-            'w-full bg-transparent text-deepPurple shadow-none border-2 border-deepPurple/40 font-semibold tracking-wide hover:bg-gradient-to-r hover:from-trapperGreen hover:to-modernPink hover:text-white hover:border-transparent hoverEffect',
+            "w-full bg-transparent text-deepPurple shadow-none border-2 border-deepPurple/40 font-semibold tracking-wide hover:bg-gradient-to-r hover:from-trapperGreen hover:to-modernPink hover:text-white hover:border-transparent hoverEffect",
             className
           )}
         >

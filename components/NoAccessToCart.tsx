@@ -1,14 +1,14 @@
-import React from 'react';
-import { SignInButton, SignUpButton } from '@clerk/nextjs';
-import { Button } from './ui/button';
+import React from "react";
+import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { Button } from "./ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from './ui/card';
-import Logo from './Logo';
+} from "./ui/card";
+import Logo from "./Logo";
 
 const NoAccessToCart = () => {
   return (

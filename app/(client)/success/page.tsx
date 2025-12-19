@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import useCartStore from '@/store';
-import { Check, Home, Package, ShoppingBag } from 'lucide-react';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { MY_ORDERS_QUERYResult } from '@/sanity.types';
-import { client } from '@/sanity/lib/client';
-import { defineQuery } from 'next-sanity';
-import { useUser } from '@clerk/nextjs';
+import useCartStore from "@/store";
+import { Check, Home, Package, ShoppingBag } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { MY_ORDERS_QUERYResult } from "@/sanity.types";
+import { client } from "@/sanity/lib/client";
+import { defineQuery } from "next-sanity";
+import { useUser } from "@clerk/nextjs";
 
 const SuccessPage = () => {
   const [orders, setOrders] = useState<MY_ORDERS_QUERYResult>([]);
   const searchParams = useSearchParams();
-  const orderNumber = searchParams.get('orderNumber');
+  const orderNumber = searchParams.get("orderNumber");
   const clearCart = useCartStore((state) => state.resetCart);
   const { user } = useUser();
   const userId = user?.id;
@@ -35,16 +35,16 @@ const SuccessPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (!userId) {
-        console.log('User ID not found. Cannot fetch orders.');
+        console.log("User ID not found. Cannot fetch orders.");
         return;
       }
 
       try {
         const ordersData = await client.fetch(query, { userId });
         setOrders(ordersData);
-        console.log('Fetched orders:', ordersData);
+        console.log("Fetched orders:", ordersData);
       } catch (error) {
-        console.error('Error fetching orders:', error);
+        console.error("Error fetching orders:", error);
       }
     };
 
@@ -62,7 +62,7 @@ const SuccessPage = () => {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           className="w-24 h-24 bg-black rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg"
         >
           <Check className="text-white w-12 h-12" />
@@ -78,7 +78,7 @@ const SuccessPage = () => {
             be sent to your inbox shortly.
           </p>
           <p className="text-gray-700">
-            Order Number:{' '}
+            Order Number:{" "}
             <span className="text-black font-semibold">{orderNumber}</span>
           </p>
         </div>

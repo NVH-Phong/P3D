@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import React from 'react';
-import { ClerkLoaded, SignedIn, UserButton } from '@clerk/nextjs';
-import { auth, currentUser } from '@clerk/nextjs/server';
-import Container from './Container';
-import { getAllCategories, getMyOrders } from '@/sanity/helpers/queries';
-import HeaderMenu from './HeaderMenu';
-import Logo from './Logo';
-import { ListOrdered } from 'lucide-react';
-import CartIcon from './CartIcon';
-import MobileMenu from './MobileMenu';
-import SearchBar from './SearchBar';
+import Link from "next/link";
+import React from "react";
+import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs/server";
+import Container from "./Container";
+import { getAllCategories, getMyOrders } from "@/sanity/helpers/queries";
+import HeaderMenu from "./HeaderMenu";
+import Logo from "./Logo";
+import { ListOrdered } from "lucide-react";
+import CartIcon from "./CartIcon";
+import MobileMenu from "./MobileMenu";
+import SearchBar from "./SearchBar";
 
 const Header = async () => {
   const user = await currentUser();
@@ -32,7 +32,7 @@ const Header = async () => {
           <SearchBar />
           <CartIcon />
           <SignedIn>
-            <Link href={'/orders'} className="group relative">
+            <Link href={"/orders"} className="group relative">
               <ListOrdered className="group-hover:text-trapperGreen hoverEffect" />
               <span className="absolute -top-1 -right-1 bg-deepPurple text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center">
                 {orders?.length ? orders?.length : 0}

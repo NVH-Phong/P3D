@@ -1,5 +1,5 @@
-import { defineQuery } from 'next-sanity';
-import { sanityFetch } from '../lib/live';
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "../lib/live";
 
 export const getAllProducts = async () => {
   const PRODUCTS_QUERY = defineQuery(`*[_type=="product"] | order(name asc)`);
@@ -9,13 +9,13 @@ export const getAllProducts = async () => {
     });
     return products.data || [];
   } catch (error) {
-    console.log('Error fetching all products:', error);
+    console.log("Error fetching all products:", error);
     return [];
   }
 };
 
 export const getAllCategories = async (quantity?: number) => {
-  const CATEGORIES_QUERY = `*[_type=="category"] | order(name asc)${quantity ? `[0...${quantity}]` : ''}`;
+  const CATEGORIES_QUERY = `*[_type=="category"] | order(name asc)${quantity ? `[0...${quantity}]` : ""}`;
 
   try {
     const categories = await sanityFetch({
@@ -23,7 +23,7 @@ export const getAllCategories = async (quantity?: number) => {
     });
     return categories?.data || [];
   } catch (error) {
-    console.error('Error fetching all categories:', error);
+    console.error("Error fetching all categories:", error);
     return [];
   }
 };
@@ -42,7 +42,7 @@ export const searchProductsByName = async (searchParam: string) => {
     });
     return products?.data || [];
   } catch (error) {
-    console.error('Error fetching products by name:', error);
+    console.error("Error fetching products by name:", error);
     return [];
   }
 };
@@ -61,7 +61,7 @@ export const getProductBySlug = async (slug: string) => {
     });
     return product?.data || null;
   } catch (error) {
-    console.error('Error fetching product by ID:', error);
+    console.error("Error fetching product by ID:", error);
     return null;
   }
 };
@@ -79,7 +79,7 @@ export const getProductsByCategory = async (categorySlug: string) => {
     });
     return products?.data || [];
   } catch (error) {
-    console.error('Erroor fetching products by category:', error);
+    console.error("Erroor fetching products by category:", error);
     return [];
   }
 };
@@ -92,14 +92,14 @@ export const getSale = async () => {
     });
     return products?.data || [];
   } catch (error) {
-    console.error('Error fetching products by category:', error);
+    console.error("Error fetching products by category:", error);
     return [];
   }
 };
 
 export const getMyOrders = async (userId: string) => {
   if (!userId) {
-    throw new Error('User ID is required');
+    throw new Error("User ID is required");
   }
   const MY_ORDERS_QUERY =
     defineQuery(`*[_type == 'order' && clerkUserId == $userId] | order(orderData desc){
@@ -115,7 +115,7 @@ export const getMyOrders = async (userId: string) => {
     });
     return orders?.data || [];
   } catch (error) {
-    console.error('Error fetching orders:', error);
+    console.error("Error fetching orders:", error);
     return [];
   }
 };

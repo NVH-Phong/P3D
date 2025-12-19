@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Container from '@/components/Container';
-import STLViewer from '@/components/STLViewer';
-import { Label } from '@/components/ui/label';
+import React, { useState } from "react";
+import Container from "@/components/Container";
+import STLViewer from "@/components/STLViewer";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Slider } from '@/components/ui/slider';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   materialOptions,
   colorOptions,
   surfaceFinishOptions,
-} from '@/constants';
-import { Separator } from '@/components/ui/separator';
+} from "@/constants";
+import { Separator } from "@/components/ui/separator";
 
 export default function CustomOrderPage() {
   const [material, setMaterial] = useState<string>(materialOptions[0].value);
@@ -37,8 +37,8 @@ export default function CustomOrderPage() {
   // Material densities in g/cm³
   const materialDensities: { [key: string]: number } = {
     pla: 1.24,
-    'hyper-pla': 1.22,
-    'matte-pla': 1.25,
+    "hyper-pla": 1.22,
+    "matte-pla": 1.25,
   };
 
   // Calculate estimated weight based on volume and infill

@@ -1,6 +1,6 @@
-import { Product } from './sanity.types';
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { Product } from "./sanity.types";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export interface CartItem {
   product: Product;
@@ -80,7 +80,7 @@ const useCartStore = create<CartState>()(
       },
       getGroupedItems: () => get().items,
     }),
-    { name: 'cart-store' }
+    { name: "cart-store" }
   )
 );
 

@@ -1,7 +1,7 @@
-import React from 'react';
-import PriceFormatter from './PriceFormatter';
-import { cn } from '@/lib/utils';
-import { twMerge } from 'tailwind-merge';
+import React from "react";
+import PriceFormatter from "./PriceFormatter";
+import { cn } from "@/lib/utils";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   price: number | undefined;
@@ -17,7 +17,7 @@ const PriceView = ({ price, discount, className }: Props) => {
         <PriceFormatter
           amount={price + (realDiscount * price) / 100}
           className={cn(
-            'text-xs line-through font-medium text-zinc-500',
+            "text-xs line-through font-medium text-zinc-500",
             className
           )}
         />

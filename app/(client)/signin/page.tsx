@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,18 +6,18 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { SignInButton } from '@clerk/nextjs';
-import { currentUser } from '@clerk/nextjs/server';
-import { Github, Mail } from 'lucide-react';
-import { redirect } from 'next/navigation';
-import React from 'react';
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { SignInButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
+import { Github, Mail } from "lucide-react";
+import { redirect } from "next/navigation";
+import React from "react";
 
 const SignInPage = async () => {
   const user = await currentUser();
   if (user) {
-    redirect('/');
+    redirect("/");
   }
 
   return (
@@ -99,7 +99,7 @@ const SignInPage = async () => {
         </CardContent>
         <CardFooter className="flex justify-center">
           <div className="text-sm text-muted-foreground">
-            Don&apos;t have an account?{' '}
+            Don&apos;t have an account?{" "}
             <SignInButton mode="modal">
               <button className="underline hover:text-darkBlue hoverEffect cursor-pointer font-semibold decoration-[1px] underline-offset-2">
                 Sign up
