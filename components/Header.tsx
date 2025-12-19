@@ -1,9 +1,8 @@
 import Link from "next/link";
-import React from "react";
 import { ClerkLoaded, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import Container from "./Container";
-import { getAllCategories, getMyOrders } from "@/sanity/helpers/queries";
+import { getMyOrders } from "@/sanity/helpers/queries";
 import HeaderMenu from "./HeaderMenu";
 import Logo from "./Logo";
 import { ListOrdered } from "lucide-react";
@@ -12,14 +11,11 @@ import MobileMenu from "./MobileMenu";
 import SearchBar from "./SearchBar";
 
 const Header = async () => {
-  const user = await currentUser();
   const { userId } = await auth();
   let orders = null;
   if (userId) {
     orders = await getMyOrders(userId);
   }
-  const categories = await getAllCategories(3);
-
   return (
     <header className="bg-background/80 backdrop-blur-md sticky top-0 z-50 border-b border-b-border/50 py-5 shadow-lg shadow-deepPurple/5">
       <Container className="flex items-center justify-between gap-7 text-foreground">
@@ -43,7 +39,7 @@ const Header = async () => {
             <SignedIn>
               <UserButton />
             </SignedIn>
-            {!user && (
+            {!userId && (
               <SignInButton mode="modal">
                 <button className="text-sm font-semibold hover:text-trapperGreen hoverEffect cursor-pointer">
                   Login
