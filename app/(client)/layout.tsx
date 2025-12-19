@@ -27,9 +27,7 @@ export default async function RootLayout({
         </>
       )}
       <Header />
-      <main className="relative">
-        {children}
-      </main>
+      <main className="relative">{children}</main>
       <Footer />
       <Toaster
         position="bottom-right"

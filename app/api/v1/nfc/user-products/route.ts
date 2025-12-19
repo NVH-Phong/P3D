@@ -1,14 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-import { auth } from '@clerk/nextjs/server';
-import { getMyOrders } from '@/sanity/helpers/queries';
+import { NextRequest, NextResponse } from "next/server";
+import { db } from "@/lib/db";
+import { auth } from "@clerk/nextjs/server";
+import { getMyOrders } from "@/sanity/helpers/queries";
 
 export async function GET(req: NextRequest) {
   try {
     const { userId } = await auth();
 
     if (!userId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Get all orders for this user
@@ -20,9 +20,9 @@ export async function GET(req: NextRequest) {
 
     // Get all NFC tags for this user
     const nfcTags = await db
-      .selectFrom('nfc_tags')
+      .selectFrom("nfc_tags")
       .selectAll()
-      .where('user_claim', '=', userId)
+      .where("user_claim", "=", userId)
       .execute();
 
     if (!nfcTags || nfcTags.length === 0) {
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
         const product = orderProduct.product;
 
         // Check if this product is an NFC tag
-        if (product?.variant === 'nfc tag') {
+        if (product?.variant === "nfc tag") {
           const quantity = orderProduct.quantity || 1;
 
           // Assign each quantity to an NFC tag from the user's tags
@@ -51,7 +51,8 @@ export async function GET(req: NextRequest) {
             nfcProducts.push({
               productId: product._id,
               productTitle: product.title,
-              productImage: product.images && product.images[0] ? product.images[0] : null,
+              productImage:
+                product.images && product.images[0] ? product.images[0] : null,
               nfcTagId: nfcTag.id,
               currentUrl: nfcTag.url,
               quantity: 1,
@@ -63,9 +64,9 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ products: nfcProducts }, { status: 200 });
   } catch (error) {
-    console.error('Error fetching user NFC products:', error);
+    console.error("Error fetching user NFC products:", error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }

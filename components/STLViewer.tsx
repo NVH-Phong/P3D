@@ -2,7 +2,13 @@
 
 import React, { Suspense, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Grid, GizmoHelper, GizmoViewport, Text } from "@react-three/drei";
+import {
+  OrbitControls,
+  Grid,
+  GizmoHelper,
+  GizmoViewport,
+  Text,
+} from "@react-three/drei";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import * as THREE from "three";
 import { Upload } from "lucide-react";
@@ -43,10 +49,22 @@ interface STLViewerProps {
   onVolumeCalculated?: (volume: number) => void;
 }
 
-function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string; color: string; surfaceFinish?: string; onVolumeCalculated?: (volume: number) => void }) {
+function Model({
+  url,
+  color,
+  surfaceFinish,
+  onVolumeCalculated,
+}: {
+  url: string;
+  color: string;
+  surfaceFinish?: string;
+  onVolumeCalculated?: (volume: number) => void;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
   const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
-  const [baseGeometry, setBaseGeometry] = useState<THREE.BufferGeometry | null>(null);
+  const [baseGeometry, setBaseGeometry] = useState<THREE.BufferGeometry | null>(
+    null
+  );
 
   React.useEffect(() => {
     const loader = new STLLoader();
@@ -55,14 +73,26 @@ function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string;
       (loadedGeometry) => {
         // Find the largest flat surface by grouping coplanar triangles
         const positionAttribute = loadedGeometry.attributes.position;
-        const normalGroups = new Map<string, { normal: THREE.Vector3; totalArea: number }>();
+        const normalGroups = new Map<
+          string,
+          { normal: THREE.Vector3; totalArea: number }
+        >();
         const tolerance = 0.01; // Tolerance for considering normals as same direction
 
         // Analyze each triangle and group by normal direction
         for (let i = 0; i < positionAttribute.count; i += 3) {
-          const v1 = new THREE.Vector3().fromBufferAttribute(positionAttribute, i);
-          const v2 = new THREE.Vector3().fromBufferAttribute(positionAttribute, i + 1);
-          const v3 = new THREE.Vector3().fromBufferAttribute(positionAttribute, i + 2);
+          const v1 = new THREE.Vector3().fromBufferAttribute(
+            positionAttribute,
+            i
+          );
+          const v2 = new THREE.Vector3().fromBufferAttribute(
+            positionAttribute,
+            i + 1
+          );
+          const v3 = new THREE.Vector3().fromBufferAttribute(
+            positionAttribute,
+            i + 2
+          );
 
           // Calculate triangle area and normal
           const edge1 = new THREE.Vector3().subVectors(v2, v1);
@@ -156,11 +186,12 @@ function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string;
         const z = positions.getZ(i);
 
         // Create pseudo-random but continuous noise pattern
-        const noise = (
+        const noise =
           Math.sin(x * 10 + seed) *
-          Math.cos(y * 10 + seed) *
-          Math.sin(z * 10 + seed)
-        ) * 0.5 + 0.5;
+            Math.cos(y * 10 + seed) *
+            Math.sin(z * 10 + seed) *
+            0.5 +
+          0.5;
 
         // Random displacement with noise-based variation (0.2 to 0.5 mm)
         const baseDisplacement = Math.random() * 0.03 + 0.02;
@@ -254,9 +285,7 @@ function GridWithLabels() {
       <lineSegments>
         <edgesGeometry
           attach="geometry"
-          args={[
-            new THREE.BoxGeometry(gridSize, 0.1, gridSize),
-          ]}
+          args={[new THREE.BoxGeometry(gridSize, 0.1, gridSize)]}
         />
         <lineBasicMaterial attach="material" color="#374151" linewidth={2} />
       </lineSegments>
@@ -264,7 +293,11 @@ function GridWithLabels() {
   );
 }
 
-export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal", onVolumeCalculated }: STLViewerProps) {
+export default function STLViewer({
+  color = "#3b82f6",
+  surfaceFinish = "normal",
+  onVolumeCalculated,
+}: STLViewerProps) {
   const [stlFile, setStlFile] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -347,7 +380,12 @@ export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal",
             <Suspense fallback={null}>
               <ambientLight intensity={0.5} />
               <directionalLight position={[10, 10, 5]} intensity={1} />
-              <Model url={stlFile} color={color} surfaceFinish={surfaceFinish} onVolumeCalculated={onVolumeCalculated} />
+              <Model
+                url={stlFile}
+                color={color}
+                surfaceFinish={surfaceFinish}
+                onVolumeCalculated={onVolumeCalculated}
+              />
               <GridWithLabels />
               <OrbitControls makeDefault />
               <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
