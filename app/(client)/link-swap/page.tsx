@@ -1,16 +1,16 @@
-"use client";
-import Container from "@/components/Container";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { urlFor } from "@/sanity/lib/image";
-import { useAuth } from "@clerk/nextjs";
-import { ExternalLink, Link2, Trash2 } from "lucide-react";
-import Image from "next/image";
-import { redirect } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import Loading from "@/components/Loading";
+'use client';
+import Container from '@/components/Container';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { urlFor } from '@/sanity/lib/image';
+import { useAuth } from '@clerk/nextjs';
+import { ExternalLink, Link2, Trash2 } from 'lucide-react';
+import Image from 'next/image';
+import { redirect } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import Loading from '@/components/Loading';
 
 interface NfcProduct {
   productId: string;
@@ -38,13 +38,13 @@ const LinkSwapPage = () => {
 
   const fetchNfcProducts = async () => {
     try {
-      const response = await fetch("/api/v1/nfc/user-products");
-      if (!response.ok) throw new Error("Failed to fetch NFC products");
+      const response = await fetch('/api/v1/nfc/user-products');
+      if (!response.ok) throw new Error('Failed to fetch NFC products');
       const data = await response.json();
       setNfcProducts(data.products || []);
     } catch (error) {
-      console.error("Error fetching NFC products:", error);
-      toast.error("Failed to load your NFC products");
+      console.error('Error fetching NFC products:', error);
+      toast.error('Failed to load your NFC products');
     } finally {
       setLoading(false);
     }
@@ -52,54 +52,54 @@ const LinkSwapPage = () => {
 
   const handleUpdateUrl = async (nfcTagId: string, newUrl: string) => {
     if (!newUrl.trim()) {
-      toast.error("URL cannot be empty");
+      toast.error('URL cannot be empty');
       return;
     }
 
     setUpdatingId(nfcTagId);
     try {
       const response = await fetch(`/api/v1/nfc/${nfcTagId}/update`, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ url: newUrl }),
       });
 
-      if (!response.ok) throw new Error("Failed to update URL");
+      if (!response.ok) throw new Error('Failed to update URL');
 
-      toast.success("URL updated successfully!");
+      toast.success('URL updated successfully!');
       fetchNfcProducts();
     } catch (error) {
-      console.error("Error updating URL:", error);
-      toast.error("Failed to update URL");
+      console.error('Error updating URL:', error);
+      toast.error('Failed to update URL');
     } finally {
       setUpdatingId(null);
     }
   };
 
   const handleDeleteProduct = async (nfcTagId: string) => {
-    if (!window.confirm("Are you sure you want to delete this NFC tag?")) {
+    if (!window.confirm('Are you sure you want to delete this NFC tag?')) {
       return;
     }
 
     try {
       const response = await fetch(`/api/v1/nfc/${nfcTagId}`, {
-        method: "DELETE",
+        method: 'DELETE',
       });
 
-      if (!response.ok) throw new Error("Failed to delete NFC tag");
+      if (!response.ok) throw new Error('Failed to delete NFC tag');
 
-      toast.success("NFC tag deleted successfully!");
+      toast.success('NFC tag deleted successfully!');
       fetchNfcProducts();
     } catch (error) {
-      console.error("Error deleting NFC tag:", error);
-      toast.error("Failed to delete NFC tag");
+      console.error('Error deleting NFC tag:', error);
+      toast.error('Failed to delete NFC tag');
     }
   };
 
   if (!isSignedIn) {
-    redirect("/signin");
+    redirect('/signin');
   }
 
   if (loading) {
@@ -163,7 +163,7 @@ const NfcProductCard: React.FC<NfcProductCardProps> = ({
   onDelete,
   isUpdating,
 }) => {
-  const [newUrl, setNewUrl] = useState(product.currentUrl || "");
+  const [newUrl, setNewUrl] = useState(product.currentUrl || '');
 
   return (
     <Card>
@@ -230,7 +230,7 @@ const NfcProductCard: React.FC<NfcProductCardProps> = ({
               onClick={() => onUpdateUrl(product.nfcTagId, newUrl)}
               disabled={isUpdating || !newUrl.trim()}
             >
-              {isUpdating ? "Updating..." : "Update"}
+              {isUpdating ? 'Updating...' : 'Update'}
             </Button>
             <Button
               variant="destructive"

@@ -1,9 +1,9 @@
-"use server";
+'use server';
 
-import stripe from "@/lib/stripe";
-import Stripe from "stripe";
-import { urlFor } from "@/sanity/lib/image";
-import { CartItem } from "@/store";
+import stripe from '@/lib/stripe';
+import Stripe from 'stripe';
+import { urlFor } from '@/sanity/lib/image';
+import { CartItem } from '@/store';
 
 export interface Metadata {
   orderNumber: string;
@@ -13,7 +13,7 @@ export interface Metadata {
 }
 
 export interface GroupedCartItems {
-  product: CartItem["product"];
+  product: CartItem['product'];
   quantity: number;
 }
 
@@ -25,7 +25,7 @@ export async function createCheckoutSession(
     // Validate if any grouped items don't have a price
     const itemsWithoutPrice = items.filter((item) => !item.product.price);
     if (itemsWithoutPrice.length > 0) {
-      throw new Error("Some items do not have a price");
+      throw new Error('Some items do not have a price');
     }
 
     // Retrieve existing customer or create a new one
@@ -34,7 +34,7 @@ export async function createCheckoutSession(
       limit: 1,
     });
 
-    const customerId = customers.data.length > 0 ? customers.data[0].id : "";
+    const customerId = customers.data.length > 0 ? customers.data[0].id : '';
 
     const sessionPayload: Stripe.Checkout.SessionCreateParams = {
       metadata: {
@@ -43,9 +43,9 @@ export async function createCheckoutSession(
         customerEmail: metadata.customerEmail,
         clerkUserId: metadata.clerkUserId,
       },
-      mode: "payment",
+      mode: 'payment',
       allow_promotion_codes: true,
-      payment_method_types: ["card"],
+      payment_method_types: ['card'],
       invoice_creation: {
         enabled: true,
       },
@@ -57,10 +57,10 @@ export async function createCheckoutSession(
       }/cart`,
       line_items: items.map((item) => ({
         price_data: {
-          currency: "AUD",
+          currency: 'AUD',
           unit_amount: Math.round(item.product.price! * 100), // Convert to cents
           product_data: {
-            name: item.product.name || "Unnamed Product",
+            name: item.product.name || 'Unnamed Product',
             description: item.product.description,
             metadata: { id: item.product._id },
             images:
@@ -84,7 +84,7 @@ export async function createCheckoutSession(
 
     return session.url;
   } catch (error) {
-    console.error("Error creating checkout session:", error);
+    console.error('Error creating checkout session:', error);
     throw error;
   }
 }

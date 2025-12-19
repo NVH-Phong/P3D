@@ -51,7 +51,8 @@ export async function GET(req: NextRequest) {
             nfcProducts.push({
               productId: product._id,
               productTitle: product.title,
-              productImage: product.images && product.images[0] ? product.images[0] : null,
+              productImage:
+                product.images && product.images[0] ? product.images[0] : null,
               nfcTagId: nfcTag.id,
               currentUrl: nfcTag.url,
               quantity: 1,

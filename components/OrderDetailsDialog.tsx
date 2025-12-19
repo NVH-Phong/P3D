@@ -1,5 +1,5 @@
-import React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import React from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import {
   Table,
   TableBody,
@@ -7,13 +7,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
-import PriceFormatter from "./PriceFormatter";
-import { MY_ORDERS_QUERYResult } from "@/sanity.types";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import { Button } from "./ui/button";
-import Link from "next/link";
+} from './ui/table';
+import PriceFormatter from './PriceFormatter';
+import { MY_ORDERS_QUERYResult } from '@/sanity.types';
+import Image from 'next/image';
+import { urlFor } from '@/sanity/lib/image';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 interface OrderDetailsDialogProps {
   order: MY_ORDERS_QUERYResult[number] | null;
@@ -42,11 +42,11 @@ const OrderDetailsDialog: React.FC<OrderDetailsDialogProps> = ({
             <strong>Email:</strong> {order.email}
           </p>
           <p>
-            <strong>Date:</strong>{" "}
+            <strong>Date:</strong>{' '}
             {order.orderDate && new Date(order.orderDate).toLocaleDateString()}
           </p>
           <p>
-            <strong>Status:</strong>{" "}
+            <strong>Status:</strong>{' '}
             <span className="capitalize text-green-600 font-medium">
               {order.status}
             </span>

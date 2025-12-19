@@ -8,13 +8,20 @@ const paramsSchema = z.object({
 });
 const urlSchema = z.string().url('Invalid URL format');
 
-export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   const { id } = await params;
   const validation = paramsSchema.safeParse({ id });
   if (!validation.success) {
     return NextResponse.json({ error: 'Invalid id format' }, { status: 400 });
   }
-  const nfcTag = await db.selectFrom('nfc_tags').selectAll().where('id', '=', id).executeTakeFirst();
+  const nfcTag = await db
+    .selectFrom('nfc_tags')
+    .selectAll()
+    .where('id', '=', id)
+    .executeTakeFirst();
   if (!nfcTag) {
     return NextResponse.json({ error: 'NFC tag not found' }, { status: 404 });
   }
@@ -23,12 +30,18 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   }
   const urlValidation = urlSchema.safeParse(nfcTag.url);
   if (!urlValidation.success) {
-    return NextResponse.json({ error: 'Invalid URL configured for this NFC tag' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Invalid URL configured for this NFC tag' },
+      { status: 500 }
+    );
   }
   return NextResponse.redirect(nfcTag.url, 302);
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
     const { userId } = await auth();
 

@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "p3d-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,8 @@
     "db:migrate": "npx kysely-ctl migrate up",
     "db:migrate:down": "npx kysely-ctl migrate down",
     "db:migrate:create": "npx kysely-ctl migrate make",
-    "db:migrate:list": "npx kysely-ctl migrate list"
+    "db:migrate:list": "npx kysely-ctl migrate list",
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/v1/webhook/stripe"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.35.4",

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { ShoppingBag } from "lucide-react";
-import Link from "next/link";
-import { motion } from "motion/react";
+import { ShoppingBag } from 'lucide-react';
+import Link from 'next/link';
+import { motion } from 'motion/react';
 
 export default function EmptyCart() {
   return (
@@ -10,7 +10,7 @@ export default function EmptyCart() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         className="max-w-lg w-full text-center space-y-8"
       >
         <motion.div

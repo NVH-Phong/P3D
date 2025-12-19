@@ -1,9 +1,9 @@
-import { quickLinksData } from "@/constants";
-import Container from "./Container";
-import FooterTop from "./FooterTop";
-import Logo from "./Logo";
-import SocialMedia from "./SocialMedia";
-import Link from "next/link";
+import { quickLinksData } from '@/constants';
+import Container from './Container';
+import FooterTop from './FooterTop';
+import Logo from './Logo';
+import SocialMedia from './SocialMedia';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -24,26 +24,36 @@ const Footer = () => {
             />
           </div>
           <div>
-            <h3 className="font-bold text-foreground mb-4 text-deepPurple">CONTACT US</h3>
+            <h3 className="font-bold text-foreground mb-4 text-deepPurple">
+              CONTACT US
+            </h3>
             <div className="space-y-4 text-sm">
               <div>
                 <p className="text-foreground font-medium">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
-                <p className="text-muted-foreground text-xs">(By appointment only)</p>
+                <p className="text-muted-foreground text-xs">
+                  (By appointment only)
+                </p>
               </div>
               <div>
-                <p className="text-trapperGreen uppercase mb-1 font-semibold">PHONE</p>
+                <p className="text-trapperGreen uppercase mb-1 font-semibold">
+                  PHONE
+                </p>
                 <p className="text-foreground">+61 422261459</p>
               </div>
               <div>
-                <p className="text-trapperGreen uppercase mb-1 font-semibold">EMAIL</p>
+                <p className="text-trapperGreen uppercase mb-1 font-semibold">
+                  EMAIL
+                </p>
                 <p className="text-foreground">hphong1132@gmail.com</p>
               </div>
             </div>
           </div>
           <div>
-            <h3 className="font-bold text-foreground mb-4 text-deepPurple">Quick Links</h3>
+            <h3 className="font-bold text-foreground mb-4 text-deepPurple">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               {quickLinksData?.map((item) => (
                 <li key={item?.title}>
@@ -59,7 +69,9 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-foreground mb-4 text-deepPurple">Newsletter</h3>
+            <h3 className="font-bold text-foreground mb-4 text-deepPurple">
+              Newsletter
+            </h3>
             <p className="text-muted-foreground text-sm mb-4">
               Subscribe to our newsletter to receive updates and exclusive
               offers.

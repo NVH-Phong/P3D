@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from '@/components/Container';
 
 const PrivacyPage = () => {
   return (
@@ -186,7 +186,7 @@ const PrivacyPage = () => {
               </p>
               <div className="mt-4 p-4 bg-gray-50 rounded-lg">
                 <p className="text-gray-700">
-                  <strong>Email:</strong>{" "}
+                  <strong>Email:</strong>{' '}
                   <a
                     href="mailto:hphongt1123@gmail.com"
                     className="text-blue-600 hover:underline font-semibold"

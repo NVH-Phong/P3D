@@ -1,13 +1,13 @@
-import { X } from "lucide-react";
-import { usePathname } from "next/navigation";
-import React from "react";
-import { motion } from "motion/react";
-import Logo from "./Logo";
-import Link from "next/link";
+import { X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import React from 'react';
+import { motion } from 'motion/react';
+import Logo from './Logo';
+import Link from 'next/link';
 
-import SocialMedia from "./SocialMedia";
-import { useOutsideClick } from "@/hooks/useOutsideClick";
-import { headerData } from "@/constants";
+import SocialMedia from './SocialMedia';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
+import { headerData } from '@/constants';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -21,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   return (
     <div
       className={`fixed inset-y-0 left-0 z-50 w-full bg-darkColor/50 shadow-xl transform ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
+        isOpen ? 'translate-x-0' : '-translate-x-full'
       } transition-transform ease-in-out duration-300`}
     >
       <motion.div
@@ -47,7 +47,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               key={item.href}
               href={item.href}
               className={`hover:text-white hoverEffect ${
-                pathname === item.href && "text-white"
+                pathname === item.href && 'text-white'
               }`}
             >
               {item.title}

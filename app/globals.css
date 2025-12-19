@@ -119,8 +119,8 @@
   }
 } */
 
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -241,9 +241,9 @@
 .dark {
   --background: oklch(0.15 0.08 282);
   --foreground: oklch(0.96 0.01 280);
-  --card: oklch(0.20 0.08 282);
+  --card: oklch(0.2 0.08 282);
   --card-foreground: oklch(0.96 0.01 280);
-  --popover: oklch(0.20 0.08 282);
+  --popover: oklch(0.2 0.08 282);
   --popover-foreground: oklch(0.96 0.01 280);
   --primary: oklch(0.65 0.15 192);
   --primary-foreground: oklch(0.99 0 0);
@@ -254,8 +254,8 @@
   --accent: oklch(0.78 0.08 354);
   --accent-foreground: oklch(0.15 0.08 282);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.30 0.08 282);
-  --input: oklch(0.30 0.08 282);
+  --border: oklch(0.3 0.08 282);
+  --input: oklch(0.3 0.08 282);
   --ring: oklch(0.65 0.15 192);
   --chart-1: oklch(0.65 0.15 192);
   --chart-2: oklch(0.28 0.14 282);
@@ -268,7 +268,7 @@
   --sidebar-primary-foreground: oklch(0.99 0 0);
   --sidebar-accent: oklch(0.22 0.08 282);
   --sidebar-accent-foreground: oklch(0.96 0.01 280);
-  --sidebar-border: oklch(0.30 0.08 282);
+  --sidebar-border: oklch(0.3 0.08 282);
   --sidebar-ring: oklch(0.65 0.15 192);
 }
 
@@ -287,7 +287,7 @@
 
 /*Our font setup*/
 :root {
-  --font-montserrat: "Montserrat", sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 body {
   font-family: var(--font-montserrat);

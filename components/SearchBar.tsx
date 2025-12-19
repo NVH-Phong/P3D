@@ -1,24 +1,24 @@
-"use client";
-import { Loader2, Search, X } from "lucide-react";
-import React, { useCallback, useEffect, useState } from "react";
+'use client';
+import { Loader2, Search, X } from 'lucide-react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog";
-import { client } from "@/sanity/lib/client";
-import { Input } from "./ui/input";
-import AddToCartButton from "./AddToCartButton";
-import { urlFor } from "@/sanity/lib/image";
-import { Product } from "@/sanity.types";
-import PriceView from "./PriceView";
-import Image from "next/image";
-import Link from "next/link";
+} from './ui/dialog';
+import { client } from '@/sanity/lib/client';
+import { Input } from './ui/input';
+import AddToCartButton from './AddToCartButton';
+import { urlFor } from '@/sanity/lib/image';
+import { Product } from '@/sanity.types';
+import PriceView from './PriceView';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const SearchBar = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -43,7 +43,7 @@ const SearchBar = () => {
       const response = await client.fetch(query, params);
       setProducts(response);
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error('Error fetching products:', error);
     } finally {
       setLoading(false);
     }
@@ -77,7 +77,7 @@ const SearchBar = () => {
             />
             {search && (
               <X
-                onClick={() => setSearch("")}
+                onClick={() => setSearch('')}
                 className="w-4 h-4 absolute top-3 right-11 hover:text-red-600 hoverEffect"
               />
             )}
@@ -113,7 +113,7 @@ const SearchBar = () => {
                           width={200}
                           height={200}
                           src={urlFor(product?.images[0]).url()}
-                          alt={"productImage"}
+                          alt={'productImage'}
                           className="object-cover w-full h-full group-hover:scale-110 hoverEffect"
                         />
                       )}
@@ -149,7 +149,7 @@ const SearchBar = () => {
               <div className="text-center py-10 font-semibold tracking-wide">
                 {search && products?.length ? (
                   <p>
-                    Nothing match with the keyword{" "}
+                    Nothing match with the keyword{' '}
                     <span className="underline text-red-600">{search}</span>.
                     Please try something else.
                   </p>

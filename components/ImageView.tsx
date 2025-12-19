@@ -1,25 +1,25 @@
-"use client";
+'use client';
 import {
   internalGroqTypeReferenceTo,
   SanityImageCrop,
   SanityImageHotspot,
-} from "@/sanity.types";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+} from '@/sanity.types';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import Image from 'next/image';
+import { urlFor } from '@/sanity/lib/image';
 
 interface Props {
   images?: Array<{
     asset?: {
       _ref: string;
-      _type: "reference";
+      _type: 'reference';
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: 'image';
     _key: string;
   }>;
 }
@@ -51,7 +51,7 @@ const ImageView = ({ images = [] }: Props) => {
           <button
             onClick={() => setActive(image)}
             key={image?._key}
-            className={`border rounded-md overflow-hidden ${active?._key === image?._key ? "ring-1 ring-darkColor" : ""}`}
+            className={`border rounded-md overflow-hidden ${active?._key === image?._key ? 'ring-1 ring-darkColor' : ''}`}
           >
             <Image
               src={urlFor(image).url()}

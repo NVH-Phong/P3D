@@ -1,9 +1,9 @@
-import { type SchemaTypeDefinition } from "sanity";
+import { type SchemaTypeDefinition } from 'sanity';
 
 //import { blockContentType } from "./blockContentType";
-import { categoryType } from "./categoryType";
-import { productType } from "./productType";
-import { orderType } from "./orderTypes";
+import { categoryType } from './categoryType';
+import { productType } from './productType';
+import { orderType } from './orderTypes';
 //import { postType } from "./postType";
 //import { authorType } from "./authorType";
 

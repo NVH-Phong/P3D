@@ -1,5 +1,5 @@
-import { Clock, CreditCard, Mail, Phone, Truck } from "lucide-react";
-import React from "react";
+import { Clock, CreditCard, Mail, Phone, Truck } from 'lucide-react';
+import React from 'react';
 
 interface Props {
   title: string;
@@ -8,29 +8,29 @@ interface Props {
 }
 const data: Props[] = [
   {
-    title: "Secure Payment",
-    subtitle: "Secure SSL Encrypted",
+    title: 'Secure Payment',
+    subtitle: 'Secure SSL Encrypted',
     icon: (
       <CreditCard className="text-deepPurple group-hover:text-trapperGreen transition-all duration-300 group-hover:scale-110" />
     ),
   },
   {
-    title: "Free Shipping",
-    subtitle: "When you spend $250+",
+    title: 'Free Shipping',
+    subtitle: 'When you spend $250+',
     icon: (
       <Truck className="text-deepPurple group-hover:text-trapperGreen transition-all duration-300 group-hover:scale-110" />
     ),
   },
   {
-    title: "Give Us A Call",
-    subtitle: "+61 422261459",
+    title: 'Give Us A Call',
+    subtitle: '+61 422261459',
     icon: (
       <Phone className="text-deepPurple group-hover:text-trapperGreen transition-all duration-300 group-hover:scale-110" />
     ),
   },
   {
-    title: "24/7 Email Assistance",
-    subtitle: "hphong1132@gmail.com",
+    title: '24/7 Email Assistance',
+    subtitle: 'hphong1132@gmail.com',
     icon: (
       <Clock className="text-deepPurple group-hover:text-trapperGreen transition-all duration-300 group-hover:scale-110" />
     ),

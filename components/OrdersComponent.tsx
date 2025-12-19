@@ -1,19 +1,19 @@
-"use client";
-import React, { useCallback, useState } from "react";
-import { TableBody, TableCell, TableRow } from "./ui/table";
-import PriceFormatter from "./PriceFormatter";
-import { MY_ORDERS_QUERYResult } from "@/sanity.types";
-import OrderDetailsDialog from "./OrderDetailsDialog";
+'use client';
+import React, { useCallback, useState } from 'react';
+import { TableBody, TableCell, TableRow } from './ui/table';
+import PriceFormatter from './PriceFormatter';
+import { MY_ORDERS_QUERYResult } from '@/sanity.types';
+import OrderDetailsDialog from './OrderDetailsDialog';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
-import { format } from "date-fns";
-import { Trash } from "lucide-react";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+} from './ui/tooltip';
+import { format } from 'date-fns';
+import { Trash } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const OrdersComponent = ({ orders }: { orders: MY_ORDERS_QUERYResult }) => {
   const [isDeleting, setIsDeleting] = useState<string | null>(null);
@@ -38,7 +38,7 @@ const OrdersComponent = ({ orders }: { orders: MY_ORDERS_QUERYResult }) => {
 
     if (
       !confirm(
-        "Are you sure you want to delete this order? This action cannot be undone."
+        'Are you sure you want to delete this order? This action cannot be undone.'
       )
     ) {
       return;
@@ -47,31 +47,31 @@ const OrdersComponent = ({ orders }: { orders: MY_ORDERS_QUERYResult }) => {
     setIsDeleting(orderId);
 
     try {
-      const response = await fetch("/api/delete-order", {
-        method: "POST",
+      const response = await fetch('/api/delete-order', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ orderId }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to delete order");
+        throw new Error(errorData.error || 'Failed to delete order');
       }
 
       // Update the local state to remove the deleted order
 
-      toast.success("Order deleted successfully");
+      toast.success('Order deleted successfully');
 
       // Refresh the page data to get the updated orders list
       refreshOrders();
     } catch (error) {
-      console.error("Error deleting order:", error);
+      console.error('Error deleting order:', error);
       toast.error(
         error instanceof Error
           ? error.message
-          : "Failed to delete order. Please try again."
+          : 'Failed to delete order. Please try again.'
       );
     } finally {
       setIsDeleting(null);
@@ -90,11 +90,11 @@ const OrdersComponent = ({ orders }: { orders: MY_ORDERS_QUERYResult }) => {
                   onClick={() => handleOrderClick(order)}
                 >
                   <TableCell className="font-medium">
-                    {order.orderNumber?.slice(-10) ?? "N/A"}...
+                    {order.orderNumber?.slice(-10) ?? 'N/A'}...
                   </TableCell>
                   <TableCell className="hidden md:table-cell">
                     {order?.orderDate &&
-                      format(new Date(order.orderDate), "dd/MM/yyyy")}
+                      format(new Date(order.orderDate), 'dd/MM/yyyy')}
                   </TableCell>
                   <TableCell>{order.customerName}</TableCell>
                   <TableCell className="hidden sm:table-cell">
@@ -110,9 +110,9 @@ const OrdersComponent = ({ orders }: { orders: MY_ORDERS_QUERYResult }) => {
                     {order?.status && (
                       <span
                         className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                          order.status === "paid"
-                            ? "bg-green-100 text-green-800"
-                            : "bg-yellow-100 text-yellow-800"
+                          order.status === 'paid'
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-yellow-100 text-yellow-800'
                         }`}
                       >
                         {order?.status.charAt(0).toUpperCase() +
@@ -124,7 +124,7 @@ const OrdersComponent = ({ orders }: { orders: MY_ORDERS_QUERYResult }) => {
                   <TableCell className="hidden sm:table-cell">
                     {order?.invoice && (
                       <p className="font-medium line-clamp-1">
-                        {order?.invoice ? order?.invoice?.number : "----"}
+                        {order?.invoice ? order?.invoice?.number : '----'}
                       </p>
                     )}
                   </TableCell>

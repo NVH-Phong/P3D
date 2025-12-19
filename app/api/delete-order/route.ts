@@ -1,5 +1,5 @@
-import { backendClient } from "@/sanity/lib/backendClient";
-import { NextRequest, NextResponse } from "next/server";
+import { backendClient } from '@/sanity/lib/backendClient';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     // Validate orderId
     if (!orderId) {
       return NextResponse.json(
-        { error: "Order ID is required" },
+        { error: 'Order ID is required' },
         { status: 400 }
       );
     }
@@ -17,11 +17,11 @@ export async function POST(req: NextRequest) {
     // Delete the order from Sanity
     await backendClient.delete(orderId);
 
-    return NextResponse.json({ message: "Order deleted successfully" });
+    return NextResponse.json({ message: 'Order deleted successfully' });
   } catch (error) {
-    console.error("Error deleting order:", error);
+    console.error('Error deleting order:', error);
     return NextResponse.json(
-      { error: "Failed to delete order" },
+      { error: 'Failed to delete order' },
       { status: 500 }
     );
   }

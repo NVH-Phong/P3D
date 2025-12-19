@@ -1,8 +1,8 @@
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import Container from "@/components/Container";
-import SocialMedia from "@/components/SocialMedia";
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import Container from '@/components/Container';
+import SocialMedia from '@/components/SocialMedia';
 
 const ContactPage = () => {
   return (

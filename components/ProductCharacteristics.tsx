@@ -1,11 +1,11 @@
-import { Product } from "@/sanity.types";
-import React from "react";
+import { Product } from '@/sanity.types';
+import React from 'react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./ui/accordion";
+} from './ui/accordion';
 
 const ProductCharacteristics = ({ product }: { product: Product }) => {
   return (
@@ -19,23 +19,23 @@ const ProductCharacteristics = ({ product }: { product: Product }) => {
             Brand: <span className="font-semibold tracking-wide">Unknown</span>
           </p>
           <p className="flex items-center justify-between">
-            Collection:{" "}
+            Collection:{' '}
             <span className="font-semibold tracking-wide">2024</span>
           </p>
           <p className="flex items-center justify-between">
-            Type:{" "}
+            Type:{' '}
             <span className="font-semibold tracking-wide">
               {product?.variant}
             </span>
           </p>
           <p className="flex items-center justify-between">
-            Stock:{" "}
+            Stock:{' '}
             <span className="font-semibold tracking-wide">
-              {product?.stock ? "Available" : "Out of Stock"}
+              {product?.stock ? 'Available' : 'Out of Stock'}
             </span>
           </p>
           <p className="flex items-center justify-between">
-            Variant:{" "}
+            Variant:{' '}
             <span className="font-semibold tracking-wide">
               {product?.intro}
             </span>

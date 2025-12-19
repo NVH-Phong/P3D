@@ -1,7 +1,7 @@
-import React from "react";
-import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
-import { Loader2, Loader2Icon } from "lucide-react";
+import React from 'react';
+import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
+import { Loader2, Loader2Icon } from 'lucide-react';
 const NoProductsAvailable = ({
   selectedTab,
   className,
@@ -12,7 +12,7 @@ const NoProductsAvailable = ({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center py-10 min-h-80 space-y-4 text-center bg-gray-100 rounded-lg w-full mt-10"
+        'flex flex-col items-center justify-center py-10 min-h-80 space-y-4 text-center bg-gray-100 rounded-lg w-full mt-10'
       )}
     >
       <motion.div
@@ -30,10 +30,10 @@ const NoProductsAvailable = ({
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        We&apos;re sorry, but there are no products matching on{" "}
+        We&apos;re sorry, but there are no products matching on{' '}
         <span className="text-base font-semibold text-darkColor">
           {selectedTab}
-        </span>{" "}
+        </span>{' '}
         criteria at the moment.
       </motion.p>
       <motion.div

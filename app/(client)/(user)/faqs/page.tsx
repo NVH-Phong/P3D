@@ -3,9 +3,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import Container from "@/components/Container";
-import { faqsData } from "@/constants";
+} from '@/components/ui/accordion';
+import Container from '@/components/Container';
+import { faqsData } from '@/constants';
 
 const FAQPage = () => {
   return (

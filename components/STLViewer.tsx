@@ -1,12 +1,18 @@
-"use client";
+'use client';
 
-import React, { Suspense, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Grid, GizmoHelper, GizmoViewport, Text } from "@react-three/drei";
-import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
-import * as THREE from "three";
-import { Upload } from "lucide-react";
-import { Button } from "./ui/button";
+import React, { Suspense, useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import {
+  OrbitControls,
+  Grid,
+  GizmoHelper,
+  GizmoViewport,
+  Text,
+} from '@react-three/drei';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import * as THREE from 'three';
+import { Upload } from 'lucide-react';
+import { Button } from './ui/button';
 
 // Calculate volume of a mesh using the divergence theorem
 function calculateVolume(geometry: THREE.BufferGeometry): number {
@@ -43,10 +49,22 @@ interface STLViewerProps {
   onVolumeCalculated?: (volume: number) => void;
 }
 
-function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string; color: string; surfaceFinish?: string; onVolumeCalculated?: (volume: number) => void }) {
+function Model({
+  url,
+  color,
+  surfaceFinish,
+  onVolumeCalculated,
+}: {
+  url: string;
+  color: string;
+  surfaceFinish?: string;
+  onVolumeCalculated?: (volume: number) => void;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
   const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
-  const [baseGeometry, setBaseGeometry] = useState<THREE.BufferGeometry | null>(null);
+  const [baseGeometry, setBaseGeometry] = useState<THREE.BufferGeometry | null>(
+    null
+  );
 
   React.useEffect(() => {
     const loader = new STLLoader();
@@ -55,14 +73,26 @@ function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string;
       (loadedGeometry) => {
         // Find the largest flat surface by grouping coplanar triangles
         const positionAttribute = loadedGeometry.attributes.position;
-        const normalGroups = new Map<string, { normal: THREE.Vector3; totalArea: number }>();
+        const normalGroups = new Map<
+          string,
+          { normal: THREE.Vector3; totalArea: number }
+        >();
         const tolerance = 0.01; // Tolerance for considering normals as same direction
 
         // Analyze each triangle and group by normal direction
         for (let i = 0; i < positionAttribute.count; i += 3) {
-          const v1 = new THREE.Vector3().fromBufferAttribute(positionAttribute, i);
-          const v2 = new THREE.Vector3().fromBufferAttribute(positionAttribute, i + 1);
-          const v3 = new THREE.Vector3().fromBufferAttribute(positionAttribute, i + 2);
+          const v1 = new THREE.Vector3().fromBufferAttribute(
+            positionAttribute,
+            i
+          );
+          const v2 = new THREE.Vector3().fromBufferAttribute(
+            positionAttribute,
+            i + 1
+          );
+          const v3 = new THREE.Vector3().fromBufferAttribute(
+            positionAttribute,
+            i + 2
+          );
 
           // Calculate triangle area and normal
           const edge1 = new THREE.Vector3().subVectors(v2, v1);
@@ -124,7 +154,7 @@ function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string;
       },
       undefined,
       (error) => {
-        console.error("Error loading STL:", error);
+        console.error('Error loading STL:', error);
       }
     );
   }, [url]);
@@ -133,7 +163,7 @@ function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string;
   React.useEffect(() => {
     if (!baseGeometry) return;
 
-    if (surfaceFinish === "fuzzy-skin") {
+    if (surfaceFinish === 'fuzzy-skin') {
       // Clone the base geometry and apply fuzzy skin effect
       const fuzzyGeometry = baseGeometry.clone();
       const positions = fuzzyGeometry.attributes.position;
@@ -156,11 +186,12 @@ function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string;
         const z = positions.getZ(i);
 
         // Create pseudo-random but continuous noise pattern
-        const noise = (
+        const noise =
           Math.sin(x * 10 + seed) *
-          Math.cos(y * 10 + seed) *
-          Math.sin(z * 10 + seed)
-        ) * 0.5 + 0.5;
+            Math.cos(y * 10 + seed) *
+            Math.sin(z * 10 + seed) *
+            0.5 +
+          0.5;
 
         // Random displacement with noise-based variation (0.2 to 0.5 mm)
         const baseDisplacement = Math.random() * 0.03 + 0.02;
@@ -186,9 +217,9 @@ function Model({ url, color, surfaceFinish, onVolumeCalculated }: { url: string;
     <mesh ref={meshRef} geometry={geometry}>
       <meshStandardMaterial
         color={color}
-        roughness={surfaceFinish === "fuzzy-skin" ? 1.0 : 0.5}
+        roughness={surfaceFinish === 'fuzzy-skin' ? 1.0 : 0.5}
         metalness={0.0}
-        flatShading={surfaceFinish === "fuzzy-skin"}
+        flatShading={surfaceFinish === 'fuzzy-skin'}
       />
     </mesh>
   );
@@ -254,9 +285,7 @@ function GridWithLabels() {
       <lineSegments>
         <edgesGeometry
           attach="geometry"
-          args={[
-            new THREE.BoxGeometry(gridSize, 0.1, gridSize),
-          ]}
+          args={[new THREE.BoxGeometry(gridSize, 0.1, gridSize)]}
         />
         <lineBasicMaterial attach="material" color="#374151" linewidth={2} />
       </lineSegments>
@@ -264,7 +293,11 @@ function GridWithLabels() {
   );
 }
 
-export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal", onVolumeCalculated }: STLViewerProps) {
+export default function STLViewer({
+  color = '#3b82f6',
+  surfaceFinish = 'normal',
+  onVolumeCalculated,
+}: STLViewerProps) {
   const [stlFile, setStlFile] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -274,8 +307,8 @@ export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal",
 
     // Check file extension (case-insensitive)
     const fileName = file.name.toLowerCase();
-    if (!fileName.endsWith(".stl")) {
-      alert("Please upload a valid STL file");
+    if (!fileName.endsWith('.stl')) {
+      alert('Please upload a valid STL file');
       return;
     }
 
@@ -283,8 +316,8 @@ export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal",
       const url = URL.createObjectURL(file);
       setStlFile(url);
     } catch (error) {
-      console.error("Error creating file URL:", error);
-      alert("Failed to load the file. Please try again.");
+      console.error('Error creating file URL:', error);
+      alert('Failed to load the file. Please try again.');
     }
   };
 
@@ -316,8 +349,8 @@ export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal",
         <div
           className={`w-full h-full flex flex-col items-center justify-center border-2 border-dashed rounded-lg transition-colors ${
             isDragging
-              ? "border-primary bg-primary/5"
-              : "border-gray-300 bg-gray-50"
+              ? 'border-primary bg-primary/5'
+              : 'border-gray-300 bg-gray-50'
           }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -347,12 +380,17 @@ export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal",
             <Suspense fallback={null}>
               <ambientLight intensity={0.5} />
               <directionalLight position={[10, 10, 5]} intensity={1} />
-              <Model url={stlFile} color={color} surfaceFinish={surfaceFinish} onVolumeCalculated={onVolumeCalculated} />
+              <Model
+                url={stlFile}
+                color={color}
+                surfaceFinish={surfaceFinish}
+                onVolumeCalculated={onVolumeCalculated}
+              />
               <GridWithLabels />
               <OrbitControls makeDefault />
               <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
                 <GizmoViewport
-                  axisColors={["#ef4444", "#22c55e", "#3b82f6"]}
+                  axisColors={['#ef4444', '#22c55e', '#3b82f6']}
                   labelColor="white"
                 />
               </GizmoHelper>
@@ -365,7 +403,7 @@ export default function STLViewer({ color = "#3b82f6", surfaceFinish = "normal",
             onClick={() => {
               setStlFile(null);
               if (fileInputRef.current) {
-                fileInputRef.current.value = "";
+                fileInputRef.current.value = '';
               }
             }}
             variant="outline"

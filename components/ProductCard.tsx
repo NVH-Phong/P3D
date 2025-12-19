@@ -1,10 +1,10 @@
-import { Product } from "@/sanity.types";
-import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import PriceView from "./PriceView";
-import AddToCartButton from "./AddToCartButton";
+import { Product } from '@/sanity.types';
+import { urlFor } from '@/sanity/lib/image';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import PriceView from './PriceView';
+import AddToCartButton from './AddToCartButton';
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               height={500}
               alt="productImage"
               priority
-              className={`w-full h-72 object-contain overflow-hidden hoverEffect ${product?.stock !== 0 && "group-hover:scale-105"}`}
+              className={`w-full h-72 object-contain overflow-hidden hoverEffect ${product?.stock !== 0 && 'group-hover:scale-105'}`}
             />
           </Link>
         )}
@@ -31,7 +31,9 @@ const ProductCard = ({ product }: { product: Product }) => {
         )}
       </div>
       <div className="py-3 px-2 flex flex-col gap-1.5 bg-card border border-border border-t-0 rounded-lg rounded-tl-none rounded-tr-none">
-        <h2 className="font-semibold line-clamp-1 text-foreground">{product?.title}</h2>
+        <h2 className="font-semibold line-clamp-1 text-foreground">
+          {product?.title}
+        </h2>
         <p className="text-muted-foreground text-xs">{product?.intro}</p>
         <PriceView
           className="text-lg"

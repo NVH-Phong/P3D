@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import Link from "next/link";
+import Container from '@/components/Container';
+import Link from 'next/link';
 
 const AboutPage = () => {
   return (
@@ -24,7 +24,7 @@ const AboutPage = () => {
           </h2>
           <p className="text-lg text-[#1d1145]/80 leading-relaxed mb-4">
             P3D is your premier destination for high-quality 3D products and
-            innovative design solutions.{" "}
+            innovative design solutions.{' '}
             <span className="font-semibold text-[#0db4b9]">
               Founded in 2025
             </span>
@@ -101,7 +101,9 @@ const AboutPage = () => {
 
         {/* Call to Action */}
         <div className="text-center bg-white rounded-3xl shadow-xl shadow-[#1d1145]/10 p-10 border border-[#f2a1a1]/30">
-          <h2 className="text-3xl font-bold mb-4 text-[#1d1145]">Join Our Journey</h2>
+          <h2 className="text-3xl font-bold mb-4 text-[#1d1145]">
+            Join Our Journey
+          </h2>
           <p className="text-lg mb-6 text-[#1d1145]/70">
             Experience the future of 3D design and manufacturing with P3D
           </p>

@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import React from "react";
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import React from 'react';
 
 interface Props {
   children: React.ReactNode;
@@ -8,10 +8,10 @@ interface Props {
 }
 const Logo = ({ children, className }: Props) => {
   return (
-    <Link href={"/"}>
+    <Link href={'/'}>
       <h2
         className={cn(
-          "text-2xl text-darkColor font-black tracking-wider uppercase ",
+          'text-2xl text-darkColor font-black tracking-wider uppercase ',
           className
           // change font and text color of Logo here
         )}
