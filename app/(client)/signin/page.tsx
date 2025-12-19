@@ -101,7 +101,7 @@ const SignInPage = async () => {
           <div className="text-sm text-muted-foreground">
             Don&apos;t have an account?{" "}
             <SignInButton mode="modal">
-              <button className="underline hover:text-darkBlue hoverEffect cursor-pointer font-semibold decoration-[1px] underline-offset-2">
+              <button className="underline hover:text-darkBlue hoverEffect cursor-pointer font-semibold decoration-1 underline-offset-2">
                 Sign up
               </button>
             </SignInButton>

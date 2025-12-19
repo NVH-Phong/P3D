@@ -63,7 +63,7 @@ const SearchBar = () => {
         onClick={() => setShowSearch(!showSearch)}
         className="flex items-center hover:cursor-pointer"
       >
-        <Search className="w-5 h-5 hover:text-darkColor hoverEffect" />
+        <Search className="w-6 h-6 hover:text-darkColor hoverEffect" />
       </DialogTrigger>
       <DialogContent className="max-w-5xl min-h-[90vh] max-h-[90vh] flex flex-col overflow-hidden bg-white">
         <DialogHeader>

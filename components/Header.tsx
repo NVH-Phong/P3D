@@ -33,8 +33,8 @@ const Header = async () => {
           <CartIcon />
           <SignedIn>
             <Link href={"/orders"} className="group relative">
-              <ListOrdered className="group-hover:text-trapperGreen hoverEffect" />
-              <span className="absolute -top-1 -right-1 bg-deepPurple text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center">
+              <ListOrdered className="w-6 h-6 group-hover:text-trapperGreen hoverEffect" />
+              <span className="absolute -top-1 -right-1 bg-deepPurple text-white h-4 w-4 rounded-full text-xs font-semibold flex items-center justify-center">
                 {orders?.length ? orders?.length : 0}
               </span>
             </Link>
