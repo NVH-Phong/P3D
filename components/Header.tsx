@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
+import { ClerkLoaded, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import Container from "./Container";
 import { getAllCategories, getMyOrders } from "@/sanity/helpers/queries";
@@ -33,8 +33,8 @@ const Header = async () => {
           <CartIcon />
           <SignedIn>
             <Link href={"/orders"} className="group relative">
-              <ListOrdered className="group-hover:text-trapperGreen hoverEffect" />
-              <span className="absolute -top-1 -right-1 bg-deepPurple text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center">
+              <ListOrdered className="w-6 h-6 group-hover:text-trapperGreen hoverEffect" />
+              <span className="absolute -top-1 -right-1 bg-deepPurple text-white h-4 w-4 rounded-full text-xs font-semibold flex items-center justify-center">
                 {orders?.length ? orders?.length : 0}
               </span>
             </Link>
@@ -44,12 +44,11 @@ const Header = async () => {
               <UserButton />
             </SignedIn>
             {!user && (
-              <Link
-                href="/signin"
-                className="text-sm font-semibold hover:text-trapperGreen hoverEffect"
-              >
-                Login
-              </Link>
+              <SignInButton mode="modal">
+                <button className="text-sm font-semibold hover:text-trapperGreen hoverEffect cursor-pointer">
+                  Login
+                </button>
+              </SignInButton>
             )}
           </ClerkLoaded>
         </div>

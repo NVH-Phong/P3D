@@ -65,7 +65,7 @@ const SignInPage = async () => {
               </Button>
             </SignInButton>
 
-            <SignInButton mode="modal">
+            {/* <SignInButton mode="modal">
               <Button
                 variant="outline"
                 className="w-full hover:bg-lightBg hoverEffect cursor-pointer"
@@ -73,7 +73,7 @@ const SignInPage = async () => {
                 <Github className="mr-2 h-4 w-4" />
                 Sign in with GitHub
               </Button>
-            </SignInButton>
+            </SignInButton> */}
           </div>
 
           <div className="relative">
@@ -101,7 +101,7 @@ const SignInPage = async () => {
           <div className="text-sm text-muted-foreground">
             Don&apos;t have an account?{" "}
             <SignInButton mode="modal">
-              <button className="underline hover:text-darkBlue hoverEffect cursor-pointer font-semibold decoration-[1px] underline-offset-2">
+              <button className="underline hover:text-darkBlue hoverEffect cursor-pointer font-semibold decoration-1 underline-offset-2">
                 Sign up
               </button>
             </SignInButton>
