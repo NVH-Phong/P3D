@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
+import { ClerkLoaded, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import Container from "./Container";
 import { getAllCategories, getMyOrders } from "@/sanity/helpers/queries";
@@ -44,12 +44,11 @@ const Header = async () => {
               <UserButton />
             </SignedIn>
             {!user && (
-              <Link
-                href="/signin"
-                className="text-sm font-semibold hover:text-trapperGreen hoverEffect"
-              >
-                Login
-              </Link>
+              <SignInButton mode="modal">
+                <button className="text-sm font-semibold hover:text-trapperGreen hoverEffect cursor-pointer">
+                  Login
+                </button>
+              </SignInButton>
             )}
           </ClerkLoaded>
         </div>
