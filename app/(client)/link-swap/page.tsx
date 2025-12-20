@@ -9,6 +9,7 @@ import { redirect } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Loading from "@/components/Loading";
+import { getNfcTags, updateNfcTagUrl } from "@/app/actions/nfc";
 
 interface NfcTag {
   id: string;
@@ -32,10 +33,8 @@ const LinkSwapPage = () => {
 
   const fetchNfcTags = async () => {
     try {
-      const response = await fetch("/api/v1/nfc");
-      if (!response.ok) throw new Error("Failed to fetch NFC tags");
-      const data = await response.json();
-      setNfcTags(data.nfcTags || []);
+      const tags = await getNfcTags();
+      setNfcTags(tags || []);
     } catch (error) {
       console.error("Error fetching NFC tags:", error);
       toast.error("Failed to load your NFC tags");
@@ -52,21 +51,14 @@ const LinkSwapPage = () => {
 
     setUpdatingId(nfcTagId);
     try {
-      const response = await fetch(`/api/v1/nfc/${nfcTagId}/update`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url: newUrl }),
-      });
-
-      if (!response.ok) throw new Error("Failed to update URL");
-
+      await updateNfcTagUrl(nfcTagId, newUrl);
       toast.success("URL updated successfully!");
       fetchNfcTags();
     } catch (error) {
       console.error("Error updating URL:", error);
-      toast.error("Failed to update URL");
+      toast.error(
+        error instanceof Error ? error.message : "Failed to update URL"
+      );
     } finally {
       setUpdatingId(null);
     }
