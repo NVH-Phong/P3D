@@ -38,7 +38,7 @@ const LinkSwapPage = () => {
 
   const fetchNfcProducts = async () => {
     try {
-      const response = await fetch("/api/v1/nfc/user-products");
+      const response = await fetch("/api/v1/nfc");
       if (!response.ok) throw new Error("Failed to fetch NFC products");
       const data = await response.json();
       setNfcProducts(data.products || []);
