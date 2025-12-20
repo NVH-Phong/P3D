@@ -94,7 +94,7 @@ export default function CustomOrderPage() {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10">
             {/* 3D Viewer - Left side */}
             <div className="lg:col-span-7 order-1">
-              <div className="sticky top-8">
+              <div className="lg:sticky lg:top-24 lg:self-start">
                 <div className="bg-white rounded-2xl border border-[#dea6af]/40 shadow-xl shadow-[#141145]/10 overflow-hidden">
                   <div className="bg-linear-to-r from-[#141145] to-[#141145]/90 px-6 py-4 border-b border-[#e76d89]/30">
                     <h3 className="text-lg font-semibold text-white">
