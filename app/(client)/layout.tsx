@@ -6,7 +6,6 @@ import { Toaster } from "react-hot-toast";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 import DisableDraftMode from "@/components/DisableDraftMode";
-import ChatIcon from "@/components/ChatIcon";
 
 export const metadata: Metadata = {
   title: "P3D",
@@ -39,7 +38,6 @@ export default async function RootLayout({
         }}
       />
       <SanityLive />
-      <ChatIcon />
     </div>
   );
 }

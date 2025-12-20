@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(del \"c:\\\\Users\\\\hoang\\\\Downloads\\\\Screenshot 2025-12-20 124323.png\")",
+      "Bash(del \"D:\\\\Work\\\\website\\\\P3D\\\\components\\\\ChatIcon.tsx\")",
+      "Bash(del \"c:\\\\Users\\\\hoang\\\\Downloads\\\\Screenshot 2025-12-20 124847.png\")"
     ]
   }
 }
