@@ -19,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
+    <div className="min-h-screen bg-linear-to-br from-background via-muted/30 to-background">
       {(await draftMode()).isEnabled && (
         <>
           <DisableDraftMode />
